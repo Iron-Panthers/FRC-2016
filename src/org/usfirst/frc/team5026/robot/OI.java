@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.lib.PantherJoystick;
+import org.usfirst.frc.team5026.lib.AxisButton;
+import org.usfirst.frc.team5026.lib.PantherGamepad;
 import org.usfirst.frc.team5026.robot.commands.AllFailSafe;
 import org.usfirst.frc.team5026.robot.commands.DriveRotateThetaWithGyro;
 import org.usfirst.frc.team5026.robot.commands.DriveTurnDegrees;
@@ -12,8 +13,6 @@ import org.usfirst.frc.team5026.robot.commands.RoutineShootWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.ShooterPistonsRaise;
 import org.usfirst.frc.team5026.robot.commands.StageTwoOuttake;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -24,82 +23,46 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class OI {
 	
-	private PantherJoystick driveJoystick;
+	private PantherGamepad driveJoystick;
 	
-	public Button driveButton6;
-	public Button driveButton7;
-	public Button driveButton10;
-	public Button driveButton11;
-	
-	private PantherJoystick turnJoystick; // FOR TESTING PURPOSES
-	
-	private Joystick buttonBoard;
-	
-	public Button boardButton1;
-	public Button boardButton2;
-	public Button boardButton3;
-	public Button boardButton4;
-	public Button boardButton5;
-	public Button boardButton6;
-	public Button boardButton7;
-	public Button boardButton8;
-	public Button boardButton9;
-	public Button boardSwitch10;
-	public Button boardSwitch11;
-	public Button boardSwitch12;
-	public Button boardSwitch13;
+	public JoystickButton xButton;
+	public JoystickButton yButton;
+	public JoystickButton bButton;
+	public JoystickButton aButton;
+	public JoystickButton leftBumper;
+	public JoystickButton rightBumper;
+	public JoystickButton backButton;
+	public JoystickButton startButton;
+	public AxisButton leftTrigButton;
+	public AxisButton rightTrigButton;
 	
 	public OI() {
 		SmartDashboard.putString("INITS", "NONE");
-		driveJoystick = new PantherJoystick(RobotMap.DRIVE_JOYSTICK, Constants.DRIVE_JOYSTICK_X_DEADZONE, Constants.DRIVE_JOYSTICK_Y_DEADZONE, 
+		driveJoystick = new PantherGamepad(RobotMap.DRIVE_JOYSTICK, Constants.DRIVE_JOYSTICK_X_DEADZONE, Constants.DRIVE_JOYSTICK_Y_DEADZONE, 
 				Constants.DRIVE_MOTORS_DEAD_ZONE, Constants.DRIVE_JOYSTICK_X_SCALING, Constants.DRIVE_JOYSTICK_Y_SCALING);
-		buttonBoard = new Joystick(RobotMap.BUTTON_BOARD);
-		
-		turnJoystick = new PantherJoystick(3, Constants.DRIVE_JOYSTICK_X_DEADZONE, Constants.DRIVE_JOYSTICK_Y_DEADZONE, 
-				Constants.DRIVE_MOTORS_DEAD_ZONE, Constants.DRIVE_JOYSTICK_X_SCALING, Constants.DRIVE_JOYSTICK_Y_SCALING);
-		initButtons();
 	}
 	
-	public PantherJoystick getDriveJoystick() {
+	public PantherGamepad getDriveJoystick() {
 		return driveJoystick;
 	}
 	
-	// For testing purposes
-	public PantherJoystick getTurnJoystick() {
-		return turnJoystick;
-	}
-	public Joystick getButtonBoard() {
-		return buttonBoard;
-	}
-	
 	public void initButtons() {
-		initDriveJoystick();
-		initButtonBoard();
+		initGamepadButtons();
 	}
 	
-	// Construct and add commands to buttons
-	private void initDriveJoystick() {
-		driveButton6 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_6);
-		driveButton7 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_7);
-		driveButton10 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_10);
-		driveButton11 = new JoystickButton(driveJoystick, RobotMap.DRIVE_BUTTON_11);
-	}
-	
-	private void initButtonBoard() {
-		boardButton1 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_1);
-		boardButton2 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_2);
-		boardButton3 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_3);
-		boardButton4 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_4);
-		boardButton5 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_5);
-		boardButton6 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_6);
-		boardButton7 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_7);
-		boardButton8 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_8);
-		boardButton9 = new JoystickButton(buttonBoard, RobotMap.BOARD_BUTTON_9);
-		boardSwitch10 = new JoystickButton(buttonBoard, RobotMap.BOARD_SWITCH_10);
-		boardSwitch11 = new JoystickButton(buttonBoard, RobotMap.BOARD_SWITCH_11);
-		boardSwitch12 = new JoystickButton(buttonBoard, RobotMap.BOARD_SWITCH_12);
-		boardSwitch13 = new JoystickButton(buttonBoard, RobotMap.BOARD_SWITCH_13);
-		SmartDashboard.putString("INITS", "Board Done");
+	//initialize gamepad buttons
+	private void initGamepadButtons(){
+		xButton = driveJoystick.getButtonX();
+		yButton = driveJoystick.getButtonY();
+		bButton = driveJoystick.getButtonB();
+		aButton = driveJoystick.getButtonA();
+		leftBumper = driveJoystick.getLeftShoulder();
+		rightBumper = driveJoystick.getRightShoulder();
+		backButton = driveJoystick.getBackButton();
+		startButton = driveJoystick.getStartButton();
+		
+		leftTrigButton = driveJoystick.getLeftTrig();
+		rightTrigButton = driveJoystick.getRightTrig();
 	}
 	
 	public void mapButtonsToCommands() {
