@@ -1,13 +1,14 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.lib.ShooterMotorGroup;
 import org.usfirst.frc.team5026.lib.DriveMotorGroup;
+import org.usfirst.frc.team5026.lib.ShooterMotorGroup;
 
 import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
@@ -36,6 +37,9 @@ public class Hardware {
 	public Accelerometer roboRIOAccelerometer;
 	public Gyro gyro;
 	public DigitalInput stageTwoBannerSensor;
+	
+	public Encoder leftEncoder = new Encoder(Constants.LEFT_DRIVE_ENCODER1, Constants.LEFT_DRIVE_ENCODER2);
+	public Encoder rightEncoder = new Encoder(Constants.RIGHT_DRIVE_ENCODER1, Constants.RIGHT_DRIVE_ENCODER2);
 	
 	public Hardware() {
 		leftDrive = new DriveMotorGroup(new Talon(RobotMap.LEFT_DRIVE_MOTOR_1), new Talon(RobotMap.LEFT_DRIVE_MOTOR_2), new Talon(RobotMap.LEFT_DRIVE_MOTOR_3), true);

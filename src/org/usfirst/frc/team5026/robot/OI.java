@@ -31,8 +31,8 @@ public class OI {
 	public JoystickButton rightBumper;
 	public JoystickButton backButton;
 	public JoystickButton startButton;
-	public AxisButton leftTrigButton;
-	public AxisButton rightTrigButton;
+	public JoystickButton leftTrigButton;
+	public JoystickButton rightTrigButton;
 	public AxisButton leftDPadButton;
 	public AxisButton rightDPadButton;
 	
