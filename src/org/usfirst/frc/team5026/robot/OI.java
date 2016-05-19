@@ -3,6 +3,7 @@ package org.usfirst.frc.team5026.robot;
 import org.usfirst.frc.team5026.lib.AxisButton;
 import org.usfirst.frc.team5026.lib.PantherGamepad;
 import org.usfirst.frc.team5026.robot.commands.AllFailSafe;
+import org.usfirst.frc.team5026.robot.commands.DriveTurnDegrees;
 import org.usfirst.frc.team5026.robot.commands.GearToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinOut;
@@ -31,8 +32,8 @@ public class OI {
 	public JoystickButton rightBumper;
 	public JoystickButton backButton;
 	public JoystickButton startButton;
-	public AxisButton leftTrigButton;
-	public AxisButton rightTrigButton;
+	public JoystickButton leftTrigButton;
+	public JoystickButton rightTrigButton;
 	public AxisButton leftDPadButton;
 	public AxisButton rightDPadButton;
 	
@@ -66,6 +67,7 @@ public class OI {
 		rightBumper = driveJoystick.getRightShoulder();
 		backButton = driveJoystick.getBackButton();
 		startButton = driveJoystick.getStartButton();
+		
 		
 		leftTrigButton = driveJoystick.getLeftTrig();
 		rightTrigButton = driveJoystick.getRightTrig();

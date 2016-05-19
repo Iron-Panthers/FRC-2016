@@ -32,8 +32,10 @@ public class VisionAngleRotation extends Command {
     	SmartDashboard.putNumber("offsetAngle", Robot.rotate.offsetAngle);
     	SmartDashboard.putNumber("Current Angle", Robot.rotate.getGyro());
     	if (Robot.rotate.offsetAngle - Robot.rotate.getGyro() < 0) {
+    		// LEFT
     		Robot.drive.setLeftRightMotors(speed, -speed);
     	} else {
+    		// RIGHT
     		Robot.drive.setLeftRightMotors(-speed, speed);
     	}
     	

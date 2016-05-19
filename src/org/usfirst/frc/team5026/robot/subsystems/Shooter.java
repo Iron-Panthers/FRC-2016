@@ -18,8 +18,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Shooter extends Subsystem {
     
 	
-	private ShooterMotorGroup lowerShooterGroup;
-	private ShooterMotorGroup upperShooterGroup;
+	public ShooterMotorGroup lowerShooterGroup;
+	public ShooterMotorGroup upperShooterGroup;
 	
 	public int[] upperLookup;
 	public int[] lowerLookup;
@@ -46,6 +46,8 @@ public class Shooter extends Subsystem {
 		upperLookup = lookupListUpper;
 		lowerLookup = lookupListLower;
 		
+		Robot.hardware.shooterLight.set(0);
+		
 		try {
 			double z = upperShooterGroup.motor1.getClosedLoopError();
 			upperEncoder = true;
@@ -63,6 +65,8 @@ public class Shooter extends Subsystem {
 	
 	// Has to be repeatedly called
 	public void update() {
+		SmartDashboard.putBoolean("UPPER ENCODER", upperEncoder);
+		SmartDashboard.putBoolean("LOWER ENCODER", lowerEncoder);
 		if(running) {
 			PID();
 		}
@@ -151,6 +155,7 @@ public class Shooter extends Subsystem {
 		upperShooterGroup.motor1.disable();
 		lowerShooterGroup.motor1.disable();
 		SmartDashboard.putString("Stable shooter?", "NO");
+		Robot.hardware.shooterLight.set(0);
 	}
 	
 	public void prints(boolean upper) {

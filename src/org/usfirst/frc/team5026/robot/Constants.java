@@ -10,8 +10,8 @@ public class Constants {
 	// Joystick
 	public static final double DRIVE_JOYSTICK_X_DEADZONE = 0.3;
 	public static final double DRIVE_JOYSTICK_Y_DEADZONE = 0.3;
-	public static final double DRIVE_JOYSTICK_X_SCALING = 0.5; //Need to fix at comp.
-	public static final double DRIVE_JOYSTICK_Y_SCALING = 1; //Need to fix at comp.
+	public static final double DRIVE_JOYSTICK_X_SCALING = 0.5 / 2; //Need to fix at comp.
+	public static final double DRIVE_JOYSTICK_Y_SCALING = 1 / 2; //Need to fix at comp.
 
 	// Motors
 	public static final double DRIVE_MOTORS_DEAD_ZONE = 0.35; // Value required to overcome static friction
@@ -41,12 +41,14 @@ public class Constants {
 	// Vision values
 	public static final int Y_THRESHOLD_LOW = -14; //Need to fix this at comp.
 	public static final int Y_THRESHOLD_HIGH = 18; //Need to fix this at comp.
-	public static final int X_NOMINAL_8_FT = 333; //Need to fix this at comp.
-	public static final int Y_NOMINAL_8_FT = 110; //Need to fix this at comp.
+	public static final int X_NOMINAL_8_FT = 329; //Need to fix this at comp. FIX THESE
+	public static final int Y_NOMINAL_8_FT = 156; //Need to fix this at comp. FIX THESE
+	public static final int Y_PIXELS_PER_SECOND = 100; //Need to fix this at comp. FIX THESE
 	public static final double NOMINAL_FEET = 8; //Need to fix this at comp.
 	
-	public static final int X_MAX_DIFFERENCE = 178; // At 30 degrees
+	public static final int X_MAX_DIFFERENCE = 180; // At 30 degrees
 	public static final double X_MAX_ANGLE = 30;
-	public static final double ANGLE_THRESHOLD = 2.5; //Need to fix this at comp.
-	public static final double SECONDS_PER_ANGLE = 0.017; //Need to fix this at comp.
+	public static final double ANGLE_THRESHOLD = 1.5; //Need to fix this at comp.
+	// Rotate J-ankly
+	public static final double SECONDS_PER_ANGLE = 0.015; //Need to fix this at comp.
 }

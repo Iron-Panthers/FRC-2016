@@ -6,25 +6,25 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class PantherGamepad extends Joystick {
 	// Gamepad axis ports
-	private static final int AXIS_LEFT_X = 0;
-	private static final int AXIS_LEFT_Y = 5;
-	private static final int AXIS_TRIGGER_LEFT = 2;
-	private static final int AXIS_TRIGGER_RIGHT = 3;
-	private static final int AXIS_RIGHT_X = 4;
+	private static final int AXIS_LEFT_X = 2;
+	private static final int AXIS_LEFT_Y = 3;
+	private static final int AXIS_TRIGGER_LEFT = 7;
+	private static final int AXIS_TRIGGER_RIGHT = 8;
+	private static final int AXIS_RIGHT_X = 0;
 	private static final int AXIS_RIGHT_Y = 1;
 	private static final int AXIS_DPAD = 6;
 
 	// Gamepad buttons
-	private static final int BUTTON_A = 1;
-	private static final int BUTTON_B = 2;
-	private static final int BUTTON_X = 3;
+	private static final int BUTTON_A = 2;
+	private static final int BUTTON_B = 3;
+	private static final int BUTTON_X = 1;
 	private static final int BUTTON_Y = 4;
 	private static final int BUTTON_BUMBPER_LEFT = 5;
 	private static final int BUTTON_BUMPER_RIGHT = 6;
-	private static final int BUTTON_BACK = 7;
-	private static final int BUTTON_START = 8;
-	private static final int BUTTON_LEFT_STICK = 9; //not needed?
-	private static final int BUTTON_RIGHT_STICK = 10; //not needed?
+	private static final int BUTTON_BACK = 9;
+	private static final int BUTTON_START = 10;
+	private static final int BUTTON_LEFT_STICK = 7; //not needed?
+	private static final int BUTTON_RIGHT_STICK = 8; //not needed?
 	
 	public static final double LEFT_TRIG_THRESHOLD = 0.9;
 	public static final double RIGHT_TRIG_THRESHOLD = 0.9;
@@ -195,11 +195,13 @@ public class PantherGamepad extends Joystick {
 	    return new JoystickButton(this, BUTTON_RIGHT_STICK);
 	}
 
-	public AxisButton getLeftTrig(){
-		return leftTrigButton;
+	public JoystickButton getLeftTrig(){
+		//return leftTrigButton; // THIS IS BAD, NO AXIS ON THE CONTROLLER ACTUALLY THO
+		return new JoystickButton(this, AXIS_TRIGGER_LEFT);
 	}
 	
-	public AxisButton getRightTrig(){
-		return rightTrigButton;
+	public JoystickButton getRightTrig(){
+		//return rightTrigButton; // THIS IS BAD, NO AXIS ON THE CONTROLLER ACTUALLY THO
+		return new JoystickButton(this, AXIS_TRIGGER_RIGHT);
 	}
 }

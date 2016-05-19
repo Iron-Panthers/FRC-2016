@@ -249,7 +249,7 @@ public class Robot extends IterativeRobot {
 		intakeMotors = new IntakeMotors();
 		stageTwo = new StageTwo();
 		shooter = new Shooter(lookupU, lookupL);
-		shifter = new Shifter(true);
+		shifter = new Shifter(false);
 		shooterPistons = new ShooterPistons();
 		setupTwoGroup(hardware.lowerShooterGroup, true, false);
 		setupTwoGroup(hardware.upperShooterGroup, true, true);
@@ -314,8 +314,8 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
+    	hardware.shooterLight.set(0);
         if (autonomousCommand != null) autonomousCommand.cancel();
-        
     }
 
     public void teleopPeriodic() {

@@ -1,15 +1,18 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.lib.ShooterMotorGroup;
 import org.usfirst.frc.team5026.lib.DriveMotorGroup;
+import org.usfirst.frc.team5026.lib.ShooterMotorGroup;
 
 import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
@@ -32,6 +35,7 @@ public class Hardware {
 	
 	public Talon intakeMotor;
 	public Talon stageTwoMotor;
+	public Victor shooterLight;
 	
 	public Accelerometer roboRIOAccelerometer;
 	public Gyro gyro;
@@ -50,7 +54,9 @@ public class Hardware {
 
 		intakeMotor = new Talon(RobotMap.INTAKE_ROLLER_MOTOR);
 		stageTwoMotor = new Talon(RobotMap.STAGE_TWO_MOTOR);
-
+		
+		shooterLight = new Victor(8);
+		
 		roboRIOAccelerometer = new ADXL362(Port.kOnboardCS1, Range.k2G);
 		gyro = new ADXRS450_Gyro(Port.kOnboardCS0);
 		stageTwoBannerSensor = new DigitalInput(RobotMap.STAGE_TWO_BANNER_SENSOR);

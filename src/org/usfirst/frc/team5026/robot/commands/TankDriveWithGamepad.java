@@ -39,6 +39,8 @@ public class TankDriveWithGamepad extends Command {
 
     protected void execute() {
     	Robot.drive.setLeftRightMotors(gamepad.getLeftYAxis(), gamepad.getRightYAxis());
+    	SmartDashboard.putNumber("ENC. LOWER VALUE", Robot.shooter.lowerShooterGroup.motor1.getSpeed());
+    	SmartDashboard.putNumber("ENC. UPPER VALUE", Robot.shooter.upperShooterGroup.motor1.getSpeed());
     }
 
     protected boolean isFinished() {

@@ -66,6 +66,7 @@ public class ShooterWaitForStabilize extends Command {
     		System.out.println("Stable!: " + currentUpperExponentialError + " < " + upperRange + " and " + currentLowerExponentialError + " < " + lowerRange);
     		SmartDashboard.putString("Stable shooter?", "YES");
     		finished = true;
+    		Robot.hardware.shooterLight.set(1);
     	}
     	else if(Robot.oi.leftTrigButton.get()) {
     		finished = true;

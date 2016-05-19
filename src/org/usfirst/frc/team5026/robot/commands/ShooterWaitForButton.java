@@ -41,11 +41,13 @@ public class ShooterWaitForButton extends Command {
     }
 
     protected void end() {
+    	Robot.hardware.shooterLight.set(0);
     }
 
     protected void interrupted() { // Need to test
     	System.out.println("INTERRUPTED BUTTON WAIT");
     	Scheduler.getInstance().removeAll();
     	finished = true;
+    	end();
     }
 }
