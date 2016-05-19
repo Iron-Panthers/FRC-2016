@@ -9,6 +9,7 @@ import org.usfirst.frc.team5026.robot.autonomous.SpyBotAutonomous;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeArm;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeMotors;
+import org.usfirst.frc.team5026.robot.subsystems.PIDDrive;
 import org.usfirst.frc.team5026.robot.subsystems.RotationAlign;
 import org.usfirst.frc.team5026.robot.subsystems.Shifter;
 import org.usfirst.frc.team5026.robot.subsystems.Shooter;
@@ -46,6 +47,8 @@ public class Robot extends IterativeRobot {
 	public static ShooterPistons shooterPistons;
 	public static RotationAlign rotate;
 	public static Shifter shifter;
+	
+	public static PIDDrive pidDrive;
 
     Command autonomousCommand;
     SendableChooser autonomousChooser;
@@ -256,6 +259,9 @@ public class Robot extends IterativeRobot {
 		rotate = new RotationAlign();
 		oi.mapButtonsToCommands();
 		NetworkTable.setServerMode();
+		
+		//pidDrive = new PIDDrive("LAME", 0.5,0,0,0.1, drive);
+		//pidDrive.enable();
 		
         autonomousChooser = new SendableChooser();
         autonomousChooser.addDefault("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", new LowBarShootAutoAlignAutonomous());

@@ -23,8 +23,9 @@ public class PantherGamepad extends Joystick {
 	private static final int BUTTON_BUMPER_RIGHT = 6;
 	private static final int BUTTON_BACK = 9;
 	private static final int BUTTON_START = 10;
-	private static final int BUTTON_LEFT_STICK = 7; //not needed?
-	private static final int BUTTON_RIGHT_STICK = 8; //not needed?
+
+	private static final int BUTTON_LEFT_STICK = 11; //not needed?
+	private static final int BUTTON_RIGHT_STICK = 12; //not needed?
 	
 	public static final double LEFT_TRIG_THRESHOLD = 0.9;
 	public static final double RIGHT_TRIG_THRESHOLD = 0.9;
@@ -201,7 +202,6 @@ public class PantherGamepad extends Joystick {
 	}
 	
 	public JoystickButton getRightTrig(){
-		//return rightTrigButton; // THIS IS BAD, NO AXIS ON THE CONTROLLER ACTUALLY THO
 		return new JoystickButton(this, AXIS_TRIGGER_RIGHT);
 	}
 }

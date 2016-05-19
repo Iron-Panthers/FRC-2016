@@ -21,6 +21,11 @@ public class Constants {
 	public static final double WHEEL_CIRCUMFERENCE = 37.70; // Inches
 	public static final int ENCODER_CPR = 256; // Counts per revolution
 	public static final double ENCODER_COUNTS_PER_INCH = 6.79;
+	public static final int LEFT_DRIVE_ENCODER1 = 0;
+	public static final int LEFT_DRIVE_ENCODER2 = 1;
+	
+	public static final int RIGHT_DRIVE_ENCODER1 = 7;
+	public static final int RIGHT_DRIVE_ENCODER2 = 8;
 	
 	// Shooter PID (All values obtained through magic and RTFM)
 	public static final double UPPER_SHOOTER_P = 0.448973;
