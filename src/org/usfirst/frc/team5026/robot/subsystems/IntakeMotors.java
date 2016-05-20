@@ -20,7 +20,7 @@ public class IntakeMotors extends Subsystem {
 	}
 	
 	public void intakeBall() {
-		rollerMotor.set(-0.9);
+		rollerMotor.set(-1);
 	}
 	
 	public void outtakeBall() {
