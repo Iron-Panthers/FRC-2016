@@ -72,6 +72,13 @@ public class ShooterWaitForStabilize extends Command {
     		finished = true;
     		Scheduler.getInstance().removeAll();
     	}
+    	// Shoot before Stable UNCOMMENT BELOW
+    	/*
+    	else if (Robot.oi.rightTrigButton.get()) {
+    		finished = true;
+    		System.out.println("SHOOTING BEFORE STABLE!");
+    	}
+    	*/
     	
     	lastUpperExponentialError = currentUpperExponentialError;
     	lastLowerExponentialError = currentLowerExponentialError;
