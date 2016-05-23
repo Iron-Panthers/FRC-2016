@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
@@ -45,6 +46,8 @@ public class Hardware {
 	public Encoder leftEncoder;
 	public Encoder rightEncoder;
 	
+	public PowerDistributionPanel powerDistributionPanel;
+	
 	public Hardware() {
 		leftDrive = new DriveMotorGroup(new Talon(RobotMap.LEFT_DRIVE_MOTOR_1), new Talon(RobotMap.LEFT_DRIVE_MOTOR_2), new Talon(RobotMap.LEFT_DRIVE_MOTOR_3), true);
 		rightDrive = new DriveMotorGroup(new Talon(RobotMap.RIGHT_DRIVE_MOTOR_1), new Talon(RobotMap.RIGHT_DRIVE_MOTOR_2), new Talon(RobotMap.RIGHT_DRIVE_MOTOR_3), true);
@@ -67,5 +70,7 @@ public class Hardware {
 		
 		leftEncoder = new Encoder(Constants.LEFT_DRIVE_ENCODER1, Constants.LEFT_DRIVE_ENCODER2);
 		rightEncoder = new Encoder(Constants.RIGHT_DRIVE_ENCODER1, Constants.RIGHT_DRIVE_ENCODER2);
+		
+		powerDistributionPanel = new PowerDistributionPanel(0);
 	}
 }
