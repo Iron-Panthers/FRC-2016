@@ -24,10 +24,15 @@ public class Constants {
 	public static final int LEFT_DRIVE_ENCODER1 = 0;
 	public static final int LEFT_DRIVE_ENCODER2 = 1;
 	
-	public static final int RIGHT_DRIVE_ENCODER1 = 7;
-	public static final int RIGHT_DRIVE_ENCODER2 = 8;
+	public static final int RIGHT_DRIVE_ENCODER1 = 2;
+	public static final int RIGHT_DRIVE_ENCODER2 = 3;
 	
 	// Shooter PID (All values obtained through magic and RTFM)
+	public static final double DRIVE_BASE_P = 0.5;
+	public static final double DRIVE_BASE_I = 0;
+	public static final double DRIVE_BASE_D = 0;
+	public static final double DRIVE_BASE_F = 0.478;
+	
 	public static final double UPPER_SHOOTER_P = 0.448973;
 	public static final double UPPER_SHOOTER_I = 0.000898;
 	public static final double UPPER_SHOOTER_D = 56.121601;

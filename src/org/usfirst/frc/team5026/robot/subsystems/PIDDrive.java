@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 public class PIDDrive extends PIDSubsystem {
 	
-	public static final double targetSpeed = 0.2; 
+	public static final double targetSpeed = 0.5; 
 	
 	public static final double posFactor = (1-targetSpeed);
 	public static final double negFactor = (1+targetSpeed);
@@ -25,6 +25,8 @@ public class PIDDrive extends PIDSubsystem {
 
 	@Override
 	protected double returnPIDInput() {
+		System.out.println("Left: " + leftEnc.getDistance());
+		System.out.println("Right: " + rightEnc.getDistance());
 		System.out.println(leftEnc.getDistance() + rightEnc.getDistance());
 		return (leftEnc.getDistance() + rightEnc.getDistance())/1000;
 	}

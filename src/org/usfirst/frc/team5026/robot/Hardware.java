@@ -42,8 +42,8 @@ public class Hardware {
 	public Gyro gyro;
 	public DigitalInput stageTwoBannerSensor;
 	
-	public Encoder leftEncoder = new Encoder(Constants.LEFT_DRIVE_ENCODER1, Constants.LEFT_DRIVE_ENCODER2);
-	public Encoder rightEncoder = new Encoder(Constants.RIGHT_DRIVE_ENCODER1, Constants.RIGHT_DRIVE_ENCODER2);
+	public Encoder leftEncoder;
+	public Encoder rightEncoder;
 	
 	public Hardware() {
 		leftDrive = new DriveMotorGroup(new Talon(RobotMap.LEFT_DRIVE_MOTOR_1), new Talon(RobotMap.LEFT_DRIVE_MOTOR_2), new Talon(RobotMap.LEFT_DRIVE_MOTOR_3), true);
@@ -64,5 +64,8 @@ public class Hardware {
 		roboRIOAccelerometer = new ADXL362(Port.kOnboardCS1, Range.k2G);
 		gyro = new ADXRS450_Gyro(Port.kOnboardCS0);
 		stageTwoBannerSensor = new DigitalInput(RobotMap.STAGE_TWO_BANNER_SENSOR);
+		
+		leftEncoder = new Encoder(Constants.LEFT_DRIVE_ENCODER1, Constants.LEFT_DRIVE_ENCODER2);
+		rightEncoder = new Encoder(Constants.RIGHT_DRIVE_ENCODER1, Constants.RIGHT_DRIVE_ENCODER2);
 	}
 }
