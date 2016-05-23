@@ -45,14 +45,14 @@ public class Constants {
 	
 	public static final double SHOOTER_RAMP_RATE = 36;
 	public static final int SHOOTER_MAX_RPM = 14000;
-	public static final double SHOOTER_TOLERANCE = 0.005;
+	public static final double SHOOTER_TOLERANCE = 0.015;
 	public static final int SHOOTER_PROFILE = 0;
 	
 	// Vision values
 	public static final int Y_THRESHOLD_LOW = -14; //Need to fix this at comp.
 	public static final int Y_THRESHOLD_HIGH = 18; //Need to fix this at comp.
-	public static final int X_NOMINAL_8_FT = 325; //Need to fix this at comp. FIX THESE
-	public static final int Y_NOMINAL_8_FT = 90; //Need to fix this at comp. FIX THESE
+	public static final int X_NOMINAL_8_FT = 327; //Need to fix this at comp. FIX THESE
+	public static final int Y_NOMINAL_8_FT = 75; //Need to fix this at comp. FIX THESE
 	public static final int Y_PIXELS_PER_SECOND = 110; //Need to fix this at comp. FIX THESE
 	public static final double NOMINAL_FEET = 8; //Need to fix this at comp.
 	
@@ -61,4 +61,7 @@ public class Constants {
 	public static final double ANGLE_THRESHOLD = 1.5; //Need to fix this at comp.
 	// Rotate J-ankly
 	public static final double SECONDS_PER_ANGLE = 0.015; //Need to fix this at comp.
+	
+	// Drive Straight (perfectly) Values
+	public static final double ANGLE_PER_FULL_SPEED_COMPENSATION = 45*2;
 }

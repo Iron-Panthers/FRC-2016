@@ -70,8 +70,8 @@ public class Robot extends IterativeRobot {
 	public int shooterIsNegative = -1;
 	public static int rpmUpperBatter = -3200;
 	public static int rpmLowerBatter = -4700;
-	public static int rpmUpperShooter = -6000; //4800
-	public static int rpmLowerShooter = -4600; //3200
+	public static int rpmUpperShooter = -5600; //4800
+	public static int rpmLowerShooter = -4000; //3200
 	public static int rpmUpperShooterAuto = -4800;
 	public static int rpmLowerShooterAuto = -3200;
 	NetworkTable table;

@@ -3,7 +3,7 @@ package org.usfirst.frc.team5026.robot;
 import org.usfirst.frc.team5026.lib.AxisButton;
 import org.usfirst.frc.team5026.lib.PantherGamepad;
 import org.usfirst.frc.team5026.robot.commands.AllFailSafe;
-import org.usfirst.frc.team5026.robot.commands.DriveTurnDegrees;
+import org.usfirst.frc.team5026.robot.commands.DriveStraightWithGyro;
 import org.usfirst.frc.team5026.robot.commands.GearToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinOut;
@@ -84,6 +84,7 @@ public class OI {
 		leftTrigButton.whenPressed(new RoutineIntakeBall()); // left trigger
 		aButton.whileHeld(new IntakeRollerSpinOut()); // a
 		xButton.whileHeld(new StageTwoOuttake()); // x
+		backButton.whenPressed(new DriveStraightWithGyro(0.8)); //0.8 seconds
 		//leftDPadButton.whenPressed(new DriveTurnDegrees(-5)); //left d pad
 		//rightDPadButton.whenPressed(new DriveTurnDegrees(5)); //right d pad
 		bButton.whenPressed(new IntakeArmToggle()); //b chang to toggle (whenPressed)
