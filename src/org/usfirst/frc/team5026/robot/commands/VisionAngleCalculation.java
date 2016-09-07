@@ -28,7 +28,7 @@ public class VisionAngleCalculation extends Command {
     }
 
     protected boolean isFinished() {
-        return Robot.rotate.offsetAngle != 0 || Robot.oi.leftTrigButton.get();
+        return Robot.rotate.offsetAngle != 0 || Robot.oi.boardButton4.get();
     }     
 
     protected void end() {
