@@ -32,21 +32,27 @@ public class VisionAngleRotation extends Command {
     	SmartDashboard.putNumber("offsetAngle", Robot.rotate.offsetAngle);
     	SmartDashboard.putNumber("Current Angle", Robot.rotate.getGyro());
     	if (Robot.rotate.offsetAngle - Robot.rotate.getGyro() < 0) {
+    		// LEFT
+    		// Going Left
     		Robot.drive.setLeftRightMotors(speed, -speed);
+    		System.out.println("LEFT");
     	} else {
+    		// RIGHT
+    		// Going Right
     		Robot.drive.setLeftRightMotors(-speed, speed);
+    		System.out.println("RIGHT");
     	}
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (Math.abs(Robot.rotate.offsetAngle - Robot.rotate.getGyro()) < Constants.ANGLE_THRESHOLD) || Robot.oi.boardButton4.get();
+        return (Math.abs(Robot.rotate.offsetAngle - Robot.rotate.getGyro()) < Constants.ANGLE_THRESHOLD) || Robot.oi.leftTrigButton.get();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	if (Robot.oi.boardButton4.get()) {
+    	if (Robot.oi.leftTrigButton.get()) {
     		System.out.println("CANCELLED!");
     	}
     	else {

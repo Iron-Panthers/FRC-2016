@@ -19,12 +19,12 @@ public class RobotMap {
 	// Intake Motor (Talon SR)
 	public static final int INTAKE_ROLLER_MOTOR = 0; //0, 8
 	
-	// Stage Two Motor (Talon SRX)
-	public static final int STAGE_TWO_MOTOR = 3; //3, 1
+	// Stage Two Motor (Talon SR)
+	public static final int STAGE_TWO_MOTOR = 1; //3, 1
 	
 	// Shooter Motors (ALL Talon SRX)
 	public static final int UPPER_SHOOTER_MOTOR_1 = 4; // Has encoder
-	public static final int UPPER_SHOOTER_MOTOR_2 = 6;
+	public static final int UPPER_SHOOTER_MOTOR_2 = 3;
 	
 	public static final int LOWER_SHOOTER_MOTOR_1 = 1; // Has encoder
 	public static final int LOWER_SHOOTER_MOTOR_2 = 2;

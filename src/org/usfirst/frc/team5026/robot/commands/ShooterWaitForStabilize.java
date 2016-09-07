@@ -66,11 +66,19 @@ public class ShooterWaitForStabilize extends Command {
     		System.out.println("Stable!: " + currentUpperExponentialError + " < " + upperRange + " and " + currentLowerExponentialError + " < " + lowerRange);
     		SmartDashboard.putString("Stable shooter?", "YES");
     		finished = true;
+    		Robot.hardware.shooterLight.set(1);
     	}
-    	else if(Robot.oi.boardButton4.get()) {
+    	else if(Robot.oi.leftTrigButton.get()) {
     		finished = true;
     		Scheduler.getInstance().removeAll();
     	}
+    	// Shoot before Stable UNCOMMENT BELOW
+    	/*
+    	else if (Robot.oi.rightTrigButton.get()) {
+    		finished = true;
+    		System.out.println("SHOOTING BEFORE STABLE!");
+    	}
+    	*/
     	
     	lastUpperExponentialError = currentUpperExponentialError;
     	lastLowerExponentialError = currentLowerExponentialError;
@@ -85,7 +93,7 @@ public class ShooterWaitForStabilize extends Command {
 
     protected void interrupted() { // Need to test
     	System.out.println("INTERRUPTED WAIT FOR");
-    	if (Robot.oi.boardButton1.get()) {
+    	if (Robot.oi.rightTrigButton.get()) {
     		// DONT STOP
     		return;
     	}

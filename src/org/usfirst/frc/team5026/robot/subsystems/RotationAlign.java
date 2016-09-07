@@ -3,6 +3,7 @@ package org.usfirst.frc.team5026.robot.subsystems;
 import org.usfirst.frc.team5026.robot.Constants;
 import org.usfirst.frc.team5026.robot.Robot;
 
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
@@ -21,6 +22,8 @@ public class RotationAlign extends Subsystem {
 	public double offsetAngle;
 	public double distance;
 	public double kDegrees = 0.04;
+	public double deltaY;
+	public boolean close;
 	NetworkTable table;
 	
 	public RotationAlign () {
@@ -78,9 +81,7 @@ public class RotationAlign extends Subsystem {
     
     public void offsetFromContours() {
     	offsetAngle = 0;
-    	System.out.println("TABLES GET GO");
     	table = NetworkTable.getTable("GRIP");
-    	System.out.println("TABLESGET");
     	double[] defaultValue = new double[0];
     	double[] centerX;
     	double[] centerY;
@@ -100,7 +101,6 @@ public class RotationAlign extends Subsystem {
 		heights = table.getNumberArray("shooterContours/height", defaultValue);
 		widths = table.getNumberArray("shooterContours/width", defaultValue);
 		maxArea = 0;
-		SmartDashboard.putString("PLEASE", "YAYYYY");
 		if (areas.length == 0) {
 			indexOfMaxArea = 0;
 			System.out.println("NO CONTOURS!");
@@ -131,11 +131,71 @@ public class RotationAlign extends Subsystem {
 		//contourY = heights[indexOfMaxArea];
 		//contourX = widths[indexOfMaxArea];
 		
-		offsetAngle = angleFromDeltaX(contourCenterX - Constants.X_NOMINAL_8_FT); //check if going right is positive offsetAngle
+		offsetAngle = angleFromDeltaX(contourCenterX - Constants.X_NOMINAL_8_FT) / 2; //check if going right is positive offsetAngle DONT DIVIDE BY 2
 		distance = distanceFromY(contourCenterY);
-		SmartDashboard.putNumber("Offset Angle", offsetAngle);
+		SmartDashboard.putNumber("Contour CenterX", contourCenterX);
+		SmartDashboard.putNumber("Contour CenterY", contourCenterY);
+		SmartDashboard.putNumber("Distance", distance);
+		SmartDashboard.putNumber("Nominal X", Constants.X_NOMINAL_8_FT);
 		// angle calc.
 		// dist. calc.
 		// END BEFORE ROTATING
+    }
+    public void offsetDistance() {
+    	table = NetworkTable.getTable("GRIP");
+    	double[] defaultValue = new double[0];
+    	double[] centerX;
+    	double[] centerY;
+    	double[] areas;
+    	double[] widths;
+    	double[] heights;
+    	int indexOfMaxArea = 0;
+    	double maxArea = 0;
+    	double contourCenterX;
+    	double contourCenterY;
+    	double contourX;
+    	double contourY;
+    	
+    	centerX = table.getNumberArray("shooterContours/centerX", defaultValue);
+		centerY = table.getNumberArray("shooterContours/centerY", defaultValue);
+		areas = table.getNumberArray("shooterContours/area", defaultValue);
+		heights = table.getNumberArray("shooterContours/height", defaultValue);
+		widths = table.getNumberArray("shooterContours/width", defaultValue);
+		maxArea = 0;
+		if (areas.length == 0) {
+			indexOfMaxArea = 0;
+			System.out.println("NO CONTOURS!");
+			offsetAngle = 0;
+			// Resets Index because for loop doesn't run 
+			return;
+		}
+		
+		for (int g = 0; g < areas.length; g++) {
+			if (areas[g] > maxArea) {
+				maxArea = areas[g];
+				indexOfMaxArea = g;
+				System.out.println("More than max area");
+			} else {
+				System.out.println("Less than max area");
+			}
+		}
+		System.out.println("DONE");
+		
+		//System.out.println(areas.length);
+		//indexOfMaxArea = 1;
+		if (centerX.length == 0) {
+			System.out.println("NO CONTOURS!!!");
+			return;
+		}
+		contourCenterX = centerX[indexOfMaxArea];
+		contourCenterY = centerY[indexOfMaxArea];
+		deltaY = Constants.Y_NOMINAL_8_FT - contourCenterY;
+		if (Constants.Y_NOMINAL_8_FT - contourCenterY < 0) {
+			// CLOSE
+			close = false;
+		} else {
+			// FAR
+			close = true;
+		}
     }
 }

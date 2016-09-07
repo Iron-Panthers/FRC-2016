@@ -9,7 +9,9 @@ import org.usfirst.frc.team5026.robot.autonomous.SpyBotAutonomous;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeArm;
 import org.usfirst.frc.team5026.robot.subsystems.IntakeMotors;
+import org.usfirst.frc.team5026.robot.subsystems.PIDDrive;
 import org.usfirst.frc.team5026.robot.subsystems.RotationAlign;
+import org.usfirst.frc.team5026.robot.subsystems.Shifter;
 import org.usfirst.frc.team5026.robot.subsystems.Shooter;
 import org.usfirst.frc.team5026.robot.subsystems.ShooterPistons;
 import org.usfirst.frc.team5026.robot.subsystems.StageTwo;
@@ -44,6 +46,9 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	public static ShooterPistons shooterPistons;
 	public static RotationAlign rotate;
+	public static Shifter shifter;
+	
+	public static PIDDrive pidDrive;
 
     Command autonomousCommand;
     SendableChooser autonomousChooser;
@@ -65,8 +70,8 @@ public class Robot extends IterativeRobot {
 	public int shooterIsNegative = -1;
 	public static int rpmUpperBatter = -3200;
 	public static int rpmLowerBatter = -4700;
-	public static int rpmUpperShooter = -4800; //4800
-	public static int rpmLowerShooter = -3200; //3200
+	public static int rpmUpperShooter = -5600; //4800
+	public static int rpmLowerShooter = -4000; //3200
 	public static int rpmUpperShooterAuto = -4800;
 	public static int rpmLowerShooterAuto = -3200;
 	NetworkTable table;
@@ -247,12 +252,16 @@ public class Robot extends IterativeRobot {
 		intakeMotors = new IntakeMotors();
 		stageTwo = new StageTwo();
 		shooter = new Shooter(lookupU, lookupL);
+		shifter = new Shifter(false);
 		shooterPistons = new ShooterPistons();
 		setupTwoGroup(hardware.lowerShooterGroup, true, false);
 		setupTwoGroup(hardware.upperShooterGroup, true, true);
 		rotate = new RotationAlign();
 		oi.mapButtonsToCommands();
 		NetworkTable.setServerMode();
+		
+		//pidDrive = new PIDDrive("LAME", 0.5,0,0,0.1, drive);
+		//pidDrive.enable();
 		
         autonomousChooser = new SendableChooser();
         autonomousChooser.addDefault("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", new LowBarShootAutoAlignAutonomous());
@@ -311,14 +320,14 @@ public class Robot extends IterativeRobot {
     }
 
     public void teleopInit() {
+    	hardware.shooterLight.set(0);
         if (autonomousCommand != null) autonomousCommand.cancel();
-        
     }
 
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
-    
+    	
     /**
      * This function is called periodically during test mode
      */
