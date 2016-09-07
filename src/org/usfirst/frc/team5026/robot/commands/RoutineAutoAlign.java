@@ -12,26 +12,27 @@ public class RoutineAutoAlign extends CommandGroup {
     	double speed = 0.18;
     	addSequential(new VisionAngleCalculation());
     	//Robot.rotate.offsetAngle = 30;
+    	double delay = 0.55;
         addSequential(new VisionAngleRotation(speed));
-        addSequential(new WaitCommand(0.55));
+        addSequential(new WaitCommand(delay));
         addSequential(new VisionAngleCalculation());
         addSequential(new VisionAngleRotation(speed));
-        addSequential(new WaitCommand(0.55));
+        addSequential(new WaitCommand(delay));
         addSequential(new VisionAngleCalculation());
         addSequential(new VisionAngleRotation(speed));
         
         addSequential(new VisionMoveToOptimal());
-        addSequential(new WaitCommand(0.55));
+        addSequential(new WaitCommand(delay));
         addSequential(new VisionMoveToOptimal());
-        addSequential(new WaitCommand(0.55));
+        addSequential(new WaitCommand(delay));
         addSequential(new VisionMoveToOptimal());
         
         addSequential(new VisionAngleCalculation());
         addSequential(new VisionAngleRotation(speed));
-        addSequential(new WaitCommand(0.55));
+        addSequential(new WaitCommand(delay));
         addSequential(new VisionAngleCalculation());
         addSequential(new VisionAngleRotation(speed));
-        addSequential(new WaitCommand(0.55));
+        addSequential(new WaitCommand(delay));
         addSequential(new VisionAngleCalculation());
         addSequential(new VisionAngleRotation(speed));
         
