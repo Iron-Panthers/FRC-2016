@@ -15,12 +15,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Drive extends Subsystem {
 	
 	private RobotDrive drive;
-	private PantherGamepad joystick;
-	private PantherGamepad turnJoystick; // TESTING PURPOSES
+	private PantherGamepad gamepad;
+	
+	private PanthJoystick joystick;
+	private PanthJoystick turnJoystick; // TESTING PURPOSES
 	private Hardware hardware;
 	
 	public Drive() {
 		joystick = Robot.oi.getDriveJoystick();
+		// Gamepad setup
+		turnJoysyick = Robot.oi.getTurnJoystick();
 		hardware = Robot.hardware;
 		drive = new RobotDrive(hardware.leftDrive, hardware.rightDrive); // hardware.leftDrive, hardware.rightDrive new Talon(1), new Talon(0));
 	}
@@ -29,7 +33,7 @@ public class Drive extends Subsystem {
 	 * For driving with joystick
 	 * @param joystick: Joystick to be passed in
 	 */
-	public void joystickControl(PantherGamepad joystick) {
+	public void joystickControl(PanthJoystick joystick) {
 		drive.arcadeDrive(joystick);
 	}
 	
@@ -64,7 +68,7 @@ public class Drive extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new TankDriveWithGamepad(joystick));
+    	setDefaultCommand(new ArcadeDriveWithJoystick(joystick));
     	//setDefaultCommand(new TurnThrottleJoystickControl(turnJoystick, joystick));
     }
 }
