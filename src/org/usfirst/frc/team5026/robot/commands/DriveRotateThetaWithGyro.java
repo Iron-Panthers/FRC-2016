@@ -45,7 +45,7 @@ public class DriveRotateThetaWithGyro extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	if (Robot.oi.leftBumper.get()) {
+    	if (Robot.oi.boardButton4.get()) {
     		System.out.println("CANCELLED!");
     	}
     	else {
