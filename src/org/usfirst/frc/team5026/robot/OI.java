@@ -7,6 +7,7 @@ import org.usfirst.frc.team5026.robot.commands.DriveStraightWithGyro;
 import org.usfirst.frc.team5026.robot.commands.GearToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinOut;
+import org.usfirst.frc.team5026.robot.commands.RoutineAirplane;
 import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlign;
 import org.usfirst.frc.team5026.robot.commands.RoutineIntakeBall;
 import org.usfirst.frc.team5026.robot.commands.RoutineShootWithJoystick;
@@ -84,6 +85,7 @@ public class OI {
 		leftTrigButton.whenPressed(new RoutineIntakeBall()); // left trigger
 		aButton.whileHeld(new IntakeRollerSpinOut()); // a
 		xButton.whileHeld(new StageTwoOuttake()); // x
+		startButton.whenPressed(new RoutineAirplane());
 		backButton.whenPressed(new DriveStraightWithGyro(0.8)); //0.8 seconds
 		//leftDPadButton.whenPressed(new DriveTurnDegrees(-5)); //left d pad
 		//rightDPadButton.whenPressed(new DriveTurnDegrees(5)); //right d pad
