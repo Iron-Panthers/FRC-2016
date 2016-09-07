@@ -68,7 +68,7 @@ public class ShooterWaitForStabilize extends Command {
     		finished = true;
     		Robot.hardware.shooterLight.set(1);
     	}
-    	else if(Robot.oi.leftTrigButton.get()) {
+    	else if(Robot.oi.boardButton4.get()) {
     		finished = true;
     		Scheduler.getInstance().removeAll();
     	}
@@ -93,7 +93,7 @@ public class ShooterWaitForStabilize extends Command {
 
     protected void interrupted() { // Need to test
     	System.out.println("INTERRUPTED WAIT FOR");
-    	if (Robot.oi.rightTrigButton.get()) {
+    	if (Robot.oi.boardButton4.get()) {
     		// DONT STOP
     		return;
     	}
