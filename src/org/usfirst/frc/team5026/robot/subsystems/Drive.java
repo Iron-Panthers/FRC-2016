@@ -1,9 +1,10 @@
 package org.usfirst.frc.team5026.robot.subsystems;
 
 import org.usfirst.frc.team5026.lib.PantherGamepad;
+import org.usfirst.frc.team5026.lib.PantherJoystick;
 import org.usfirst.frc.team5026.robot.Hardware;
 import org.usfirst.frc.team5026.robot.Robot;
-import org.usfirst.frc.team5026.robot.commands.TankDriveWithGamepad;
+import org.usfirst.frc.team5026.robot.commands.ArcadeDriveWithJoystick;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -17,14 +18,14 @@ public class Drive extends Subsystem {
 	private RobotDrive drive;
 	private PantherGamepad gamepad;
 	
-	private PanthJoystick joystick;
-	private PanthJoystick turnJoystick; // TESTING PURPOSES
+	private PantherJoystick joystick;
+	private PantherJoystick turnJoystick; // TESTING PURPOSES
 	private Hardware hardware;
 	
 	public Drive() {
 		joystick = Robot.oi.getDriveJoystick();
 		// Gamepad setup
-		turnJoysyick = Robot.oi.getTurnJoystick();
+		turnJoystick = Robot.oi.getTurnJoystick();
 		hardware = Robot.hardware;
 		drive = new RobotDrive(hardware.leftDrive, hardware.rightDrive); // hardware.leftDrive, hardware.rightDrive new Talon(1), new Talon(0));
 	}
@@ -33,7 +34,7 @@ public class Drive extends Subsystem {
 	 * For driving with joystick
 	 * @param joystick: Joystick to be passed in
 	 */
-	public void joystickControl(PanthJoystick joystick) {
+	public void joystickControl(PantherJoystick joystick) {
 		drive.arcadeDrive(joystick);
 	}
 	
