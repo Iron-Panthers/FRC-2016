@@ -4,7 +4,6 @@ import org.usfirst.frc.team5026.lib.AxisButton;
 import org.usfirst.frc.team5026.lib.PantherGamepad;
 import org.usfirst.frc.team5026.lib.PantherJoystick;
 import org.usfirst.frc.team5026.robot.commands.AllFailSafe;
-import org.usfirst.frc.team5026.robot.commands.DriveRotateThetaWithGyro;
 import org.usfirst.frc.team5026.robot.commands.DriveStraightWithGyro;
 import org.usfirst.frc.team5026.robot.commands.DriveTurnDegrees;
 import org.usfirst.frc.team5026.robot.commands.GearToggle;
@@ -13,6 +12,7 @@ import org.usfirst.frc.team5026.robot.commands.IntakeArmToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinOut;
 import org.usfirst.frc.team5026.robot.commands.RoutineAirplane;
 import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlign;
+import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlignNoDistance;
 import org.usfirst.frc.team5026.robot.commands.RoutineIntakeBall;
 import org.usfirst.frc.team5026.robot.commands.RoutineShootWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.ShooterPistonsRaise;
@@ -150,11 +150,12 @@ public class OI {
 		rightTrigButton = driveJoystick.getRightTrig();
 	}
 	*/
-	
+
 	public void mapButtonsToCommands() { 
 		// Button Board
 		boardButton1.whenPressed(new RoutineShootWithJoystick());
-		boardButton2.whenPressed(new DriveRotateThetaWithGyro(5));
+		boardButton2.whenPressed(new RoutineAutoAlignNoDistance());
+		//boardButton2.whenPressed(new DriveRotateThetaWithGyro(5));
  		boardButton3.whenPressed(new RoutineAutoAlign());
  		boardButton4.whenPressed(new AllFailSafe()); //Add FailSafe
  		boardButton5.whenPressed(new RoutineIntakeBall());
