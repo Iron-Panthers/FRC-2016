@@ -20,7 +20,7 @@ public class StageTwoPulseBack extends Command {
     }
 
     protected void execute() {
-    	Robot.stageTwo.outtakeBall();
+    	Robot.stageTwo.pulseBack();
     	System.out.println("Pulse Back!");
     }
 

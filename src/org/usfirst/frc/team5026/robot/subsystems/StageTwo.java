@@ -31,6 +31,10 @@ public class StageTwo extends Subsystem {
 		stageTwoMotor.set(0.8);
 	}
 	
+	public void pulseBack() {
+		stageTwoMotor.set(0.5);
+	}
+	
 	public void stopMotors() {
 		stageTwoMotor.set(0.0);
 	}

@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
@@ -50,7 +51,7 @@ public class Robot extends IterativeRobot {
 	
 	public static PIDDrive pidDrive;
 
-    Command autonomousCommand;
+    CommandGroup autonomousCommand;
     SendableChooser autonomousChooser;
 
 	public int[] lookupU = {
@@ -70,8 +71,8 @@ public class Robot extends IterativeRobot {
 	public int shooterIsNegative = -1;
 	public static int rpmUpperBatter = -3200;
 	public static int rpmLowerBatter = -4700;
-	public static int rpmUpperShooter = -5600; //4800
-	public static int rpmLowerShooter = -4000; //3200
+	public static int rpmUpperShooter = -4800; //5600
+	public static int rpmLowerShooter = -3200; //4000
 	public static int rpmUpperShooterAuto = -4800;
 	public static int rpmLowerShooterAuto = -3200;
 	NetworkTable table;
@@ -298,6 +299,7 @@ public class Robot extends IterativeRobot {
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		shooter.stop();
 	}
 
 	/**
@@ -310,8 +312,9 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
+    	autonomousCommand = (CommandGroup) autonomousChooser.getSelected();
     	System.out.println(autonomousChooser.getSelected());
-        autonomousCommand = (Command) autonomousChooser.getSelected();
+    	System.out.println(autonomousCommand.getName());
 		if (autonomousCommand != null) autonomousCommand.start();
     }
 

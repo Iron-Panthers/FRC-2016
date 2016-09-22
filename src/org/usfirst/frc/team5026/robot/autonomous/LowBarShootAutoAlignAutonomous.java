@@ -27,7 +27,8 @@ public class LowBarShootAutoAlignAutonomous extends CommandGroup {
         addSequential(new StageTwoIntake());
         addSequential(new IntakeRollerSpinIn());
         addSequential(new IntakeArmLower());
-        addSequential(new DriveForwardsCarveRight(3));
+        addSequential(new DriveRotateThetaWithGyro(-15));
+        addSequential(new DriveForwardsCarveRight(4));
         addSequential(new StageTwoIntake());
         addSequential(new StageTwoPulseBack());
         addSequential(new ShooterShootRPM(Robot.rpmUpperShooter, Robot.rpmLowerShooter)); // COMMENT ME IF I DO NOT WORK AS I SHOULD

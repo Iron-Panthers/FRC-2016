@@ -11,7 +11,7 @@ public class RoutineIntakeBall extends CommandGroup {
     public RoutineIntakeBall() {
     	addSequential(new IntakeRollerSpinIn());
     	addSequential(new StageTwoIntake());
-    	addSequential(new StageTwoPulseBack());
+    	//addSequential(new StageTwoPulseBack());
     	addSequential(new IntakeRollerStop());
     }
 }
