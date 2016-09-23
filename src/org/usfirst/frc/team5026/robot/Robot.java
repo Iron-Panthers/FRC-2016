@@ -144,14 +144,6 @@ public class Robot extends IterativeRobot {
     	
     	group.motor1.disable();
     }
-	
-	private double distanceFromY(double yCenter) {
-    	return 2.2653197632351 * Math.pow(10, -4) * Math.pow(yCenter - Constants.Y_NOMINAL_8_FT, 2) + 0.03688336790171 * (yCenter - Constants.Y_NOMINAL_8_FT) +  1.516 * Math.pow(10, -13);
-	}
-	
-	private double angleFromDeltaX(double xOffset2) {
-    	return xOffset2 * Constants.X_MAX_ANGLE / Constants.X_MAX_DIFFERENCE;
-    }
     
     public void robotInit() {
 		oi = new OI();

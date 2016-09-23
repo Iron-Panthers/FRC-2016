@@ -14,10 +14,14 @@ public class AllFailSafe extends Command {
         requires(Robot.intakeArm);
         requires(Robot.rotate);
         requires(Robot.stageTwo);
+        requires(Robot.intakeMotors);
         //requires(Robot.shooterPistons);
     }
 
     protected void initialize() {
+    	Robot.shooter.slowStop();
+    	Robot.stageTwo.stopMotors();
+    	Robot.intakeMotors.stopIntake();
     }
 
     protected void execute() {
