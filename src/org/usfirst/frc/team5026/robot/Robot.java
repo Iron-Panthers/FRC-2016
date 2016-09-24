@@ -219,6 +219,9 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         System.out.println(autonomousCommand.isRunning());
+        if (!autonomousCommand.isRunning()) {
+        	autonomousCommand.start();
+        }
     }
 
     public void teleopInit() {
