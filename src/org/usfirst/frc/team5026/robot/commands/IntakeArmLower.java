@@ -26,6 +26,7 @@ public class IntakeArmLower extends Command {
     }
 
     protected void end() {
+    	System.out.println("INTAKE ARM LOWERED!");
     }
 
     protected void interrupted() {
