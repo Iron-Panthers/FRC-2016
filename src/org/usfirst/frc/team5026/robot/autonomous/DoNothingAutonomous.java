@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5026.robot.autonomous;
 
+import org.usfirst.frc.team5026.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -9,6 +11,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DoNothingAutonomous extends Command {
 
     public DoNothingAutonomous() {
+    	requires(Robot.drive);
+    	requires(Robot.stageTwo);
+    	requires(Robot.shooter);
+    	requires(Robot.intakeMotors);
 
     }
 
