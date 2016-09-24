@@ -219,8 +219,11 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         System.out.println(autonomousCommand.isRunning());
-        if (!autonomousCommand.isRunning()) {
-        	autonomousCommand.start();
+        if (autonomousCommand.timeSinceInitialized() <= 2) {
+	        if (!autonomousCommand.isRunning()) {
+	        	autonomousCommand.start();
+	        	System.out.println("RESTARTING");
+	        }
         }
     }
 

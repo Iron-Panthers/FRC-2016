@@ -161,7 +161,7 @@ public class OI {
  		boardButton5.whenPressed(new RoutineIntakeBall());
  		boardButton6.whileHeld(new IntakeRollerSpinOut());
  		boardButton7.whileHeld(new StageTwoOuttake());
- 		boardButton8.whenPressed(new DriveTurnDegrees(-5));
+ 		boardButton8.whenPressed(new RoutineShootClose());
  		boardButton9.whenPressed(new DriveTurnDegrees(5));
  		boardSwitch10.whileHeld(new IntakeArmLower());
  		boardSwitch11.whileHeld(new ShooterPistonsRaise());
