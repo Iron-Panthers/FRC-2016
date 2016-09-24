@@ -3,7 +3,7 @@ package org.usfirst.frc.team5026.robot;
 
 import org.usfirst.frc.team5026.lib.ShooterMotorGroup;
 import org.usfirst.frc.team5026.robot.autonomous.CrossLowBarAutonomous;
-import org.usfirst.frc.team5026.robot.autonomous.DoNothingAutonomous;
+import org.usfirst.frc.team5026.robot.autonomous.DoNothingAutoGroup;
 import org.usfirst.frc.team5026.robot.autonomous.LowBarShootAutoAlignAutonomous;
 import org.usfirst.frc.team5026.robot.autonomous.SpyBotAutonomous;
 import org.usfirst.frc.team5026.robot.subsystems.Drive;
@@ -20,8 +20,6 @@ import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -166,10 +164,10 @@ public class Robot extends IterativeRobot {
 		
         autonomousChooser = new SendableChooser();
         autonomousChooser.addDefault("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", new LowBarShootAutoAlignAutonomous());
-        autonomousChooser.addObject("Do Nothing", new DoNothingAutonomous());
+        autonomousChooser.addObject("Do Nothing", new DoNothingAutoGroup());
         autonomousChooser.addObject("Cross Low Bar", new CrossLowBarAutonomous());
         autonomousChooser.addObject("Spy Box Shot", new SpyBotAutonomous());
-        autonomousChooser.addObject("DO NOTHING 2", new DoNothingAutonomous());
+        autonomousChooser.addObject("DO NOTHING 2", new DoNothingAutoGroup());
         SmartDashboard.putData("Autonomous Selector", autonomousChooser);
         
     	for (int i = 0; i < lookupU.length; i++) {
