@@ -12,7 +12,7 @@ public class SpyBotAutonomous extends CommandGroup {
     public  SpyBotAutonomous() {
     	addSequential(new StageTwoIntake());
     	addSequential(new StageTwoPulseBack());
-    	addSequential(new ShooterPistonsLower());
+    	//addSequential(new ShooterPistonsLower());
         addSequential(new RoutineShootBall()); 
     }
 }
