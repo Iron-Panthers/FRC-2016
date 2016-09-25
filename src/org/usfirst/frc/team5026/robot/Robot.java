@@ -168,13 +168,13 @@ public class Robot extends IterativeRobot {
 		//pidDrive.enable();
 		
         autonomousChooser = new SendableChooser();
-        autonomousChooser.addDefault("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", new LowBarShootAutoAlignAutonomous());
-        autonomousChooser.addObject("Do Nothing", new DoNothingAutoGroup());
-        autonomousChooser.addObject("Cross Low Bar", new CrossLowBarAutonomous());
-        autonomousChooser.addObject("Spy Box Shot", new SpyBotAutonomous());
-        autonomousChooser.addObject("DO NOTHING 2", new DoNothingAutoGroup());
+        autonomousChooser.addDefault("ESSENTIALLY MULTIBALL (AUTO ALIGN + LOW BAR)", 0);
+        autonomousChooser.addObject("Do Nothing", 1);
+        autonomousChooser.addObject("Cross Low Bar", 2);
+        autonomousChooser.addObject("Spy Box Shot", 3);
         SmartDashboard.putData("Autonomous Selector", autonomousChooser);
         
+        /*
     	for (int i = 0; i < lookupU.length; i++) {
     		if (lookupU[i] == 0) {
     			lookupU[i] = (Constants.SHOOTER_MAX_RPM * shooterIsNegative * (i + 1)) / lookupU.length;
@@ -185,7 +185,8 @@ public class Robot extends IterativeRobot {
     			lookupL[j] = (Constants.SHOOTER_MAX_RPM * shooterIsNegative * (j + 1)) / lookupL.length;
     		}
     	}
-    	
+    	*/
+        
     	// this makes the shooter lookup tables have values that increase by a certain ratio,
     	// where the 30th value of the array is max speed (in rpms) {14000}
     	// and the 0th value is 0 rpm
@@ -215,13 +216,24 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-    	autonomousCommand = (CommandGroup) autonomousChooser.getSelected();
-    	System.out.println(autonomousChooser.getSelected());
+    	CommandGroup command;
+    	switch ((int) autonomousChooser.getSelected()) {
+    	case 1:
+    		command = new DoNothingAutoGroup();
+    		break;
+    	case 2:
+    		command = new CrossLowBarAutonomous();
+    		break;
+    	case 3:
+    		command = new SpyBotAutonomous();
+    		break;
+    	case 0:
+    	default:
+    		command = new LowBarShootAutoAlignAutonomous();
+    	}
     	System.out.println(autonomousCommand.getName());
-		if (autonomousCommand != null) {
-			autonomousCommand.start();
-			SmartDashboard.putData("AUTO COMMAND", autonomousCommand);
-		}
+    	System.out.println(autonomousChooser.getSelected());
+    	command.start();
     }
 
     public void autonomousPeriodic() {
