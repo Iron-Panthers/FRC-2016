@@ -159,6 +159,11 @@ public class Robot extends IterativeRobot {
 		oi.mapButtonsToCommands();
 		NetworkTable.setServerMode();
 		
+		SmartDashboard.putData(Scheduler.getInstance());
+		SmartDashboard.putData(shooter);
+		SmartDashboard.putData(rotate);
+		SmartDashboard.putData(drive);
+		
 		//pidDrive = new PIDDrive("LAME", 0.5,0,0,0.1, drive);
 		//pidDrive.enable();
 		
@@ -213,7 +218,10 @@ public class Robot extends IterativeRobot {
     	autonomousCommand = (CommandGroup) autonomousChooser.getSelected();
     	System.out.println(autonomousChooser.getSelected());
     	System.out.println(autonomousCommand.getName());
-		if (autonomousCommand != null) autonomousCommand.start();
+		if (autonomousCommand != null) {
+			autonomousCommand.start();
+			SmartDashboard.putData("AUTO COMMAND", autonomousCommand);
+		}
     }
 
     public void autonomousPeriodic() {
