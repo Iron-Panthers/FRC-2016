@@ -216,20 +216,19 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-    	CommandGroup command;
     	switch ((int) autonomousChooser.getSelected()) {
     	case 1:
-    		command = new DoNothingAutoGroup();
+    		autonomousCommand = new DoNothingAutoGroup();
     		break;
     	case 2:
-    		command = new CrossLowBarAutonomous();
+    		autonomousCommand = new CrossLowBarAutonomous();
     		break;
     	case 3:
-    		command = new SpyBotAutonomous();
+    		autonomousCommand = new SpyBotAutonomous();
     		break;
     	case 0:
     	default:
-    		command = new LowBarShootAutoAlignAutonomous();
+    		autonomousCommand = new LowBarShootAutoAlignAutonomous();
     	}
     	System.out.println(autonomousCommand.getName());
     	System.out.println(autonomousChooser.getSelected());
