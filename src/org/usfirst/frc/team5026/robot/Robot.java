@@ -232,7 +232,7 @@ public class Robot extends IterativeRobot {
     	}
     	System.out.println(autonomousCommand.getName());
     	System.out.println(autonomousChooser.getSelected());
-    	command.start();
+    	autonomousCommand.start();
     }
 
     public void autonomousPeriodic() {
