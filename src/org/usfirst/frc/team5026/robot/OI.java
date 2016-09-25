@@ -14,6 +14,7 @@ import org.usfirst.frc.team5026.robot.commands.RoutineAirplane;
 import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlign;
 import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlignNoDistance;
 import org.usfirst.frc.team5026.robot.commands.RoutineIntakeBall;
+import org.usfirst.frc.team5026.robot.commands.RoutineShootClose;
 import org.usfirst.frc.team5026.robot.commands.RoutineShootWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.ShooterPistonsRaise;
 import org.usfirst.frc.team5026.robot.commands.StageTwoOuttake;

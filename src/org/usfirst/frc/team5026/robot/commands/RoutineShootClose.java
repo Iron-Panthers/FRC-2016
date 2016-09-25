@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class RountineShootClose extends CommandGroup {
+public class RoutineShootClose extends CommandGroup {
     
-    public  RountineShootClose() {
+    public  RoutineShootClose() {
     	addSequential(new StageTwoPulseBack());
     	addSequential(new ShooterWaitForStabilize(Robot.rpmUpperShooterAuto, Robot.rpmLowerShooterAuto));
-        addSequential(new ShooterWaitForButton(1));
+        addSequential(new ShooterWaitForButton(8));
         addSequential(new StageTwoQueueToShooter());
         addSequential(new ShooterSlowStop());
     }

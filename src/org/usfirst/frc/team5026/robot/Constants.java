@@ -52,7 +52,7 @@ public class Constants {
 	public static final int Y_THRESHOLD_LOW = -14; //Need to fix this at comp.
 	public static final int Y_THRESHOLD_HIGH = 18; //Need to fix this at comp.
 	public static final int X_NOMINAL_8_FT = 327; //Need to fix this at comp. FIX THESE
-	public static final int Y_NOMINAL_8_FT = 75; //Need to fix this at comp. FIX THESE
+	public static final int Y_NOMINAL_8_FT = 95; //Need to fix this at comp. FIX THESE
 	// 171 px, 259 px
 	// 148 px: 94 in to camera
 	// 259 px: 149 in to camera
