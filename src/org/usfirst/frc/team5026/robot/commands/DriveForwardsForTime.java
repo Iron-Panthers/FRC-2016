@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.command.Command;
  * Drives the robot forwards for a given amount of time
  */
 
-public class DriveFowardsForTime extends Command {
+public class DriveForwardsForTime extends Command {
 	
 	private Timer timer = new Timer();
 	private double seconds;
 	private double negative;
 
-    public DriveFowardsForTime(double seconds) {
+    public DriveForwardsForTime(double seconds) {
     	requires(Robot.drive);
     	this.seconds = Math.abs(seconds);
     	this.negative = Math.abs(seconds) / seconds;
