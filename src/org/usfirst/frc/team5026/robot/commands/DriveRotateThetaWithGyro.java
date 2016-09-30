@@ -19,6 +19,12 @@ public class DriveRotateThetaWithGyro extends Command {
         requires(Robot.rotate);
         this.degrees = degrees;
     }
+    public DriveRotateThetaWithGyro(double degrees, double speed) {
+    	requires(Robot.drive);
+        requires(Robot.rotate);
+        this.degrees = degrees;
+        this.speed = speed;
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
