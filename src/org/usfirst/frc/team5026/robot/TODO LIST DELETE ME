@@ -1,14 +1,4 @@
-TODO List CHEZY 2016:
-1. Make sure laptops have up to date code
-DONE
-2. Check rotation speed on a field (TURN SPEED)
-DONE
-3. Check nominal x and y (?)
-DONE
-4. Make a new GRIP pipeline
-DONE
-5. Test auto every match! (ONCE AUTOALIGN WORKS)
-
-6. Make sure distance checks are not nescessary for RPMS
-
-7. Can shoot?
+TODO List CAL 2016:
+1. Calibrate Vision RIGHT AWAY
+2. Make sure shots are reasonable based off of RPMAutoAlign
+3. Auto?
