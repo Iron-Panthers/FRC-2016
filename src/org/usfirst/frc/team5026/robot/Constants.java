@@ -56,6 +56,9 @@ public class Constants {
 	// 171 px, 259 px
 	// 148 px: 94 in to camera
 	// 259 px: 149 in to camera
+	public static final int X_NOMINAL_12_FT = 909090;
+	public static final int Y_NOMINAL_12_FT = 909090;
+	
 	public static final int Y_PIXELS_PER_SECOND = 110; //Need to fix this at comp. FIX THESE
 	public static final double NOMINAL_FEET = 8; //Need to fix this at comp.
 	

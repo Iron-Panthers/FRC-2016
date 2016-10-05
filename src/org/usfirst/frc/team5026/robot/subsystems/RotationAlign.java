@@ -78,7 +78,7 @@ public class RotationAlign extends Subsystem {
     private double angleFromDeltaX(double xOffset2) {
     	return xOffset2 * Constants.X_MAX_ANGLE / Constants.X_MAX_DIFFERENCE;
     }
-    
+    // NEED TO ADD DISTANCE CALC WHICH CHANGES RPM INSTEAD
     public void offsetFromContours() {
     	offsetAngle = 0;
     	table = NetworkTable.getTable("GRIP");
@@ -196,6 +196,54 @@ public class RotationAlign extends Subsystem {
 		} else {
 			// FAR
 			close = true;
+		}
+    }
+    public void yToRPM() {
+    	table = NetworkTable.getTable("GRIP");
+    	double[] defaultValue = new double[0];
+    	double[] centerX;
+    	double[] centerY;
+    	double[] areas;
+    	int indexOfMaxArea = 0;
+    	double maxArea = 0;
+    	double contourCenterY;
+    	
+    	centerX = table.getNumberArray("shooterContours/centerX", defaultValue);
+		centerY = table.getNumberArray("shooterContours/centerY", defaultValue);
+		areas = table.getNumberArray("shooterContours/area", defaultValue);
+		maxArea = 0;
+		if (areas.length == 0) {
+			indexOfMaxArea = 0;
+			System.out.println("NO CONTOURS!");
+			//offsetAngle = 0;
+			// Resets Index because for loop doesn't run 
+			return;
+		}
+		
+		for (int g = 0; g < areas.length; g++) {
+			if (areas[g] > maxArea) {
+				maxArea = areas[g];
+				indexOfMaxArea = g;
+				System.out.println("More than max area");
+			} else {
+				System.out.println("Less than max area");
+			}
+		}
+		System.out.println("DONE");
+		
+		//System.out.println(areas.length);
+		//indexOfMaxArea = 1;
+		if (centerX.length == 0) {
+			System.out.println("NO CONTOURS!!!");
+			return;
+		}
+		contourCenterY = centerY[indexOfMaxArea];
+		if (Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_8_FT - contourCenterY)) {
+			// 12 ft
+			
+		} else {
+			// 8 ft
+			
 		}
     }
 }
