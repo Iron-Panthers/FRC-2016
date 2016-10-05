@@ -24,6 +24,7 @@ public class RotationAlign extends Subsystem {
 	public double kDegrees = 0.04;
 	public double deltaY;
 	public boolean close;
+	public boolean rpmComplete = false;
 	NetworkTable table;
 	
 	public RotationAlign () {
@@ -199,6 +200,7 @@ public class RotationAlign extends Subsystem {
 		}
     }
     public void yToRPM() {
+    	rpmComplete = false;
     	table = NetworkTable.getTable("GRIP");
     	double[] defaultValue = new double[0];
     	double[] centerX;
@@ -238,20 +240,29 @@ public class RotationAlign extends Subsystem {
 			return;
 		}
 		contourCenterY = centerY[indexOfMaxArea];
+		int num = 0;
 		if (Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY)) {
 			// 12 ft
 			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_12;
 			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_12;
+			num = 12;
 		} else if (Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY)) {
 			// 9 ft
 			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_9;
 			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_9;
+			num = 9;
 		} else if (Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY)) {
 			// 6 ft
 			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_6;
 			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_6;
+			num = 6;
 		} else {
 			// OTHER RPM
+			System.out.println("WHAT");
 		}
+		SmartDashboard.putNumber("FEET RPM", num);
+		SmartDashboard.putNumber("RPMU", Robot.rpmUpperShooter);
+		SmartDashboard.putNumber("RPML", Robot.rpmLowerShooter);
+		rpmComplete = true;
     }
 }

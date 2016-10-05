@@ -23,8 +23,10 @@ public class RoutineAutoAlignRPMs extends CommandGroup {
         addSequential(new VisionAngleCalculation());
         addSequential(new VisionAngleRotation(speed));
         addSequential(new VisionRPMChange());
+        addSequential(new StageTwoPulseBack());
         addSequential(new ShooterShootRPM(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
         addSequential(new ShooterWaitForStabilize(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
         addSequential(new StageTwoQueueToShooter());
+        addSequential(new ShooterSlowStop());
     }
 }

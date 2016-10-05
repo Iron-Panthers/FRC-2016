@@ -109,6 +109,8 @@ public class Shooter extends Subsystem {
 	private void PID() {
 		upperShooterGroup.motor1.enable();
 		lowerShooterGroup.motor1.enable();
+		SmartDashboard.putNumber("RPMU", upperRPM);
+		SmartDashboard.putNumber("RPML", lowerRPM);
 		if(upperEncoder && lowerEncoder) {
 			upperPid();
 			lowerPid();

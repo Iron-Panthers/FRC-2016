@@ -36,6 +36,8 @@ public class ShooterWaitForStabilize extends Command {
     	requires(Robot.shooter);
     	this.upperRPM = upperRPM;
     	this.lowerRPM = lowerRPM;
+    	SmartDashboard.putNumber("RPMU", upperRPM);
+    	SmartDashboard.putNumber("RPML", lowerRPM);
     }
 
     protected void initialize() {

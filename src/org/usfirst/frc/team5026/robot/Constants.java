@@ -66,11 +66,11 @@ public class Constants {
 	public static final int X_NOMINAL_6_FT = 327; //Need to fix this at comp. FIX THESE
 	public static final int Y_NOMINAL_6_FT = 95; //Need to fix this at comp. FIX THESE
 	
-	public static final int X_NOMINAL_12_FT = 909090;
-	public static final int Y_NOMINAL_12_FT = 909090;
+	public static final int X_NOMINAL_12_FT = 333;
+	public static final int Y_NOMINAL_12_FT = 239;
 	
-	public static final int X_NOMINAL_9_FT = 909090;
-	public static final int Y_NOMINAL_9_FT = 909090;
+	public static final int X_NOMINAL_9_FT = 323;
+	public static final int Y_NOMINAL_9_FT = 143;
 	
 	public static final int Y_PIXELS_PER_SECOND = 110; //Need to fix this at comp. FIX THESE
 	public static final double NOMINAL_FEET = 8; //Need to fix this at comp.
