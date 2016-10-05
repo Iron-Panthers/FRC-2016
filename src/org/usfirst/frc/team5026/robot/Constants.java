@@ -49,7 +49,7 @@ public class Constants {
 	public static final int SHOOTER_PROFILE = 0;
 	
 	// Tested as of 10/4
-	public static final int UPPER_SHOOTER_RPM_12 = -4000;
+	public static final int UPPER_SHOOTER_RPM_12 = -4000; //Tested V
 	public static final int LOWER_SHOOTER_RPM_12 = -2900;
 	public static final int UPPER_SHOOTER_RPM_9 = -4200;
 	public static final int LOWER_SHOOTER_RPM_9 = -3000;
@@ -59,11 +59,13 @@ public class Constants {
 	// Vision values
 	public static final int Y_THRESHOLD_LOW = -14; //Need to fix this at comp.
 	public static final int Y_THRESHOLD_HIGH = 18; //Need to fix this at comp.
-	public static final int X_NOMINAL_6_FT = 327; //Need to fix this at comp. FIX THESE
-	public static final int Y_NOMINAL_6_FT = 95; //Need to fix this at comp. FIX THESE
+	
 	// 171 px, 259 px
 	// 148 px: 94 in to camera
 	// 259 px: 149 in to camera
+	public static final int X_NOMINAL_6_FT = 327; //Need to fix this at comp. FIX THESE
+	public static final int Y_NOMINAL_6_FT = 95; //Need to fix this at comp. FIX THESE
+	
 	public static final int X_NOMINAL_12_FT = 909090;
 	public static final int Y_NOMINAL_12_FT = 909090;
 	
