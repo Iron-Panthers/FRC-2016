@@ -72,7 +72,7 @@ public class RotationAlign extends Subsystem {
     }
     
     private double distanceFromY(double yCenter) {
-    	return 2.2653197632351 * Math.pow(10, -4) * Math.pow(yCenter - Constants.Y_NOMINAL_8_FT, 2) + 0.03688336790171 * (yCenter - Constants.Y_NOMINAL_8_FT) +  1.516 * Math.pow(10, -13);
+    	return 2.2653197632351 * Math.pow(10, -4) * Math.pow(yCenter - Constants.Y_NOMINAL_9_FT, 2) + 0.03688336790171 * (yCenter - Constants.Y_NOMINAL_9_FT) +  1.516 * Math.pow(10, -13);
     }
     
     private double angleFromDeltaX(double xOffset2) {
@@ -131,12 +131,12 @@ public class RotationAlign extends Subsystem {
 		//contourY = heights[indexOfMaxArea];
 		//contourX = widths[indexOfMaxArea];
 		
-		offsetAngle = angleFromDeltaX(contourCenterX - Constants.X_NOMINAL_8_FT) / 2; //check if going right is positive offsetAngle DONT DIVIDE BY 2
+		offsetAngle = angleFromDeltaX(contourCenterX - Constants.X_NOMINAL_9_FT) / 2; //check if going right is positive offsetAngle DONT DIVIDE BY 2
 		distance = distanceFromY(contourCenterY);
 		SmartDashboard.putNumber("Contour CenterX", contourCenterX);
 		SmartDashboard.putNumber("Contour CenterY", contourCenterY);
 		SmartDashboard.putNumber("Distance", distance);
-		SmartDashboard.putNumber("Nominal X", Constants.X_NOMINAL_8_FT);
+		SmartDashboard.putNumber("Nominal X", Constants.X_NOMINAL_9_FT);
 		// angle calc.
 		// dist. calc.
 		// END BEFORE ROTATING
@@ -189,8 +189,8 @@ public class RotationAlign extends Subsystem {
 		}
 		contourCenterX = centerX[indexOfMaxArea];
 		contourCenterY = centerY[indexOfMaxArea];
-		deltaY = Constants.Y_NOMINAL_8_FT - contourCenterY;
-		if (Constants.Y_NOMINAL_8_FT - contourCenterY < 0) {
+		deltaY = Constants.Y_NOMINAL_9_FT - contourCenterY;
+		if (Constants.Y_NOMINAL_9_FT - contourCenterY < 0) {
 			// CLOSE
 			close = false;
 		} else {
@@ -238,12 +238,20 @@ public class RotationAlign extends Subsystem {
 			return;
 		}
 		contourCenterY = centerY[indexOfMaxArea];
-		if (Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_8_FT - contourCenterY)) {
+		if (Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY)) {
 			// 12 ft
-			
+			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_12;
+			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_12;
+		} else if (Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY)) {
+			// 9 ft
+			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_9;
+			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_9;
+		} else if (Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY)) {
+			// 6 ft
+			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_6;
+			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_6;
 		} else {
-			// 8 ft
-			
+			// OTHER RPM
 		}
     }
 }
