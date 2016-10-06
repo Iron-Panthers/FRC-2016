@@ -1,0 +1,210 @@
+<grip:Pipeline>
+  <sources>
+    <grip:Camera>
+      <property name="address" value="http://10.50.26.50/axis-cgi/mjpg/video.cgi?camera=1"/>
+    </grip:Camera>
+    <grip:ImageFile>
+      <property name="path" value="C:\Users\IBM\Desktop\Image Processing\test.PNG"/>
+    </grip:ImageFile>
+  </sources>
+  <steps>
+    <grip:Step name="Resize Image">
+      <grip:Input step="0" socket="0"/>
+      <grip:Input step="0" socket="1">
+        <value>640.0</value>
+      </grip:Input>
+      <grip:Input step="0" socket="2">
+        <value>480.0</value>
+      </grip:Input>
+      <grip:Input step="0" socket="3">
+        <value>LINEAR</value>
+      </grip:Input>
+      <grip:Output step="0" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="Blur">
+      <grip:Input step="1" socket="0"/>
+      <grip:Input step="1" socket="1">
+        <value>BOX</value>
+      </grip:Input>
+      <grip:Input step="1" socket="2">
+        <value>3.6036036036036028</value>
+      </grip:Input>
+      <grip:Output step="1" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="HSL Threshold">
+      <grip:Input step="2" socket="0"/>
+      <grip:Input step="2" socket="1">
+        <value>
+          <double>53.417266187050366</double>
+          <double>101.67235494880548</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="2" socket="2">
+        <value>
+          <double>87.14028776978417</double>
+          <double>235.41808873720134</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="2" socket="3">
+        <value>
+          <double>41.276978417266186</double>
+          <double>255.0</double>
+        </value>
+      </grip:Input>
+      <grip:Output step="2" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="RGB Threshold">
+      <grip:Input step="3" socket="0"/>
+      <grip:Input step="3" socket="1">
+        <value>
+          <double>0.0</double>
+          <double>126.62969283276452</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="3" socket="2">
+        <value>
+          <double>100.89928057553955</double>
+          <double>209.30887372013652</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="3" socket="3">
+        <value>
+          <double>142.17625899280574</double>
+          <double>255.0</double>
+        </value>
+      </grip:Input>
+      <grip:Output step="3" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="CV bitwise_or">
+      <grip:Input step="4" socket="0"/>
+      <grip:Input step="4" socket="1"/>
+      <grip:Output step="4" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="Find Contours">
+      <grip:Input step="5" socket="0"/>
+      <grip:Input step="5" socket="1">
+        <value>false</value>
+      </grip:Input>
+      <grip:Output step="5" socket="0" previewed="false"/>
+    </grip:Step>
+    <grip:Step name="Filter Contours">
+      <grip:Input step="6" socket="0"/>
+      <grip:Input step="6" socket="1">
+        <value>620.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="2">
+        <value>150.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="3">
+        <value>40.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="4">
+        <value>100.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="5">
+        <value>40.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="6">
+        <value>80.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="7">
+        <value>
+          <double>25.179856115107913</double>
+          <double>70.13651877133105</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="6" socket="8">
+        <value>0.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="9">
+        <value>2.147483647E9</value>
+      </grip:Input>
+      <grip:Input step="6" socket="10">
+        <value>0.0</value>
+      </grip:Input>
+      <grip:Input step="6" socket="11">
+        <value>1000.0</value>
+      </grip:Input>
+      <grip:Output step="6" socket="0" previewed="false"/>
+    </grip:Step>
+    <grip:Step name="Convex Hulls">
+      <grip:Input step="7" socket="0"/>
+      <grip:Output step="7" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="NTPublish ContoursReport">
+      <grip:Input step="8" socket="0"/>
+      <grip:Input step="8" socket="1">
+        <value>shooterContours</value>
+      </grip:Input>
+      <grip:Input step="8" socket="2">
+        <value>true</value>
+      </grip:Input>
+      <grip:Input step="8" socket="3">
+        <value>true</value>
+      </grip:Input>
+      <grip:Input step="8" socket="4">
+        <value>true</value>
+      </grip:Input>
+      <grip:Input step="8" socket="5">
+        <value>true</value>
+      </grip:Input>
+      <grip:Input step="8" socket="6">
+        <value>true</value>
+      </grip:Input>
+      <grip:Input step="8" socket="7">
+        <value>false</value>
+      </grip:Input>
+    </grip:Step>
+  </steps>
+  <connections>
+    <grip:Connection>
+      <grip:Output step="2" socket="0" previewed="true"/>
+      <grip:Input step="4" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="4" socket="0" previewed="true"/>
+      <grip:Input step="5" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="0" socket="0" previewed="true"/>
+      <grip:Input step="1" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="5" socket="0" previewed="false"/>
+      <grip:Input step="6" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="7" socket="0" previewed="true"/>
+      <grip:Input step="8" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output source="0" socket="0" previewed="false"/>
+      <grip:Input step="0" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="1" socket="0" previewed="true"/>
+      <grip:Input step="2" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="1" socket="0" previewed="true"/>
+      <grip:Input step="3" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="3" socket="0" previewed="true"/>
+      <grip:Input step="4" socket="1"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="6" socket="0" previewed="false"/>
+      <grip:Input step="7" socket="0"/>
+    </grip:Connection>
+  </connections>
+  <settings>
+    <teamNumber>5026</teamNumber>
+    <publishAddress>roborio-5026-frc.local</publishAddress>
+    <deployAddress>roborio-5026-frc.local</deployAddress>
+    <deployDir>/home/lvuser</deployDir>
+    <deployUser>lvuser</deployUser>
+    <deployJavaHome>/usr/local/frc/JRE/</deployJavaHome>
+    <deployJvmOptions>-Xmx50m -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryError</deployJvmOptions>
+  </settings>
+</grip:Pipeline>

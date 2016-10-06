@@ -63,12 +63,13 @@ public class Constants {
 	// 171 px, 259 px
 	// 148 px: 94 in to camera
 	// 259 px: 149 in to camera
+	// Maker Fair Shot
 	public static final int X_NOMINAL_6_FT = 327; //Need to fix this at comp. FIX THESE
 	public static final int Y_NOMINAL_6_FT = 95; //Need to fix this at comp. FIX THESE
-	
+	// Far Shot
 	public static final int X_NOMINAL_12_FT = 333;
 	public static final int Y_NOMINAL_12_FT = 239;
-	
+	// Medium Shot (Most likely)
 	public static final int X_NOMINAL_9_FT = 323;
 	public static final int Y_NOMINAL_9_FT = 143;
 	

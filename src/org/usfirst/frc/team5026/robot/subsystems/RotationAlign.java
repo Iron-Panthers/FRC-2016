@@ -241,17 +241,21 @@ public class RotationAlign extends Subsystem {
 		}
 		contourCenterY = centerY[indexOfMaxArea];
 		int num = 0;
-		if (Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY)) {
+		double dif12 = Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY);
+		double dif9 = Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY);
+		double dif6 = Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY);
+		
+		if (dif12 < dif9 && dif12 < dif6) {
 			// 12 ft
 			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_12;
 			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_12;
 			num = 12;
-		} else if (Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY)) {
+		} else if (dif9 < dif12 && dif9 < dif6) {
 			// 9 ft
 			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_9;
 			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_9;
 			num = 9;
-		} else if (Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_9_FT - contourCenterY) && Math.abs(Constants.Y_NOMINAL_6_FT - contourCenterY) < Math.abs(Constants.Y_NOMINAL_12_FT - contourCenterY)) {
+		} else if (dif6 < dif9 && dif6 < dif12) {
 			// 6 ft
 			Robot.rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_6;
 			Robot.rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_6;
@@ -263,6 +267,9 @@ public class RotationAlign extends Subsystem {
 		SmartDashboard.putNumber("FEET RPM", num);
 		SmartDashboard.putNumber("RPMU", Robot.rpmUpperShooter);
 		SmartDashboard.putNumber("RPML", Robot.rpmLowerShooter);
+		SmartDashboard.putNumber("12Dif", dif12);
+		SmartDashboard.putNumber("9Dif", dif9);
+		SmartDashboard.putNumber("6Dif", dif6);
 		rpmComplete = true;
     }
 }
