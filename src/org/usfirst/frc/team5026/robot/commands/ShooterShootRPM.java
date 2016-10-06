@@ -13,20 +13,23 @@ public class ShooterShootRPM extends Command {
 	
 	private int upperRPM;
 	private int lowerRPM;
+	boolean init = false;
 	
     public ShooterShootRPM(int upperRPM, int lowerRPM) {
     	requires(Robot.shooter);
     	this.upperRPM = upperRPM;
     	this.lowerRPM = lowerRPM;
+    	init = true;
     }
     public ShooterShootRPM() {
     	requires(Robot.shooter);
     	this.upperRPM = 0;
     	this.lowerRPM = 0;
+    	init = false;
     }
 
     protected void initialize() {
-    	if (upperRPM == 0 && lowerRPM == 0) {
+    	if (!init) {
     		upperRPM = Robot.rpmUpperShooter;
     		lowerRPM = Robot.rpmLowerShooter;
     	}
