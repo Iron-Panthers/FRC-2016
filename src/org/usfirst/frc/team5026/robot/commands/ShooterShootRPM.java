@@ -18,11 +18,18 @@ public class ShooterShootRPM extends Command {
     	requires(Robot.shooter);
     	this.upperRPM = upperRPM;
     	this.lowerRPM = lowerRPM;
-    	SmartDashboard.putNumber("RPMU", upperRPM);
-    	SmartDashboard.putNumber("RPML", lowerRPM);
+    }
+    public ShooterShootRPM() {
+    	requires(Robot.shooter);
+    	this.upperRPM = 0;
+    	this.lowerRPM = 0;
     }
 
     protected void initialize() {
+    	if (upperRPM == 0 && lowerRPM == 0) {
+    		upperRPM = Robot.rpmUpperShooter;
+    		lowerRPM = Robot.rpmLowerShooter;
+    	}
     }
 
     protected void execute() {

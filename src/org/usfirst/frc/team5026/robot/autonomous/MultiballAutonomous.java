@@ -34,7 +34,7 @@ public class MultiballAutonomous extends CommandGroup {
     	double timeFromLineToShotPosition = 3.1; // Time to drive at half speed to get to shot spot from midline
     	double timeFromShotToSecondBall = 2.8; // Time to drive at half speed to get to the magic spot from low bar after shot
     	double timeToBallFromMagicSpot = 0.2; // Time to drive at half speed to get the ball from the spot we come out from the low bar
-    	double angleAfterLowBar = 25; // Angle to turn after coming out of the low bar (before auto align, turn this many of degrees right)
+    	double angleAfterLowBar = 25; // Angle to turn after coming out of the low bar (before auto align, turn this many degrees) right is positive
     	double speedOfRotation = 0.4; // Speed to do so
     	int rpmU = 5000; // Rpm Upper, look into having it get changed by AutoAlign
     	int rpmL = 4300; // Rpm Lower, look into having it get changed by AutoAlign

@@ -39,7 +39,7 @@ public class LowBarShootAutoAlignAutonomous extends CommandGroup {
         addSequential(new RoutineAutoAlignRPMs());
         addSequential(new RoutineAutoAlignRPMs());
         //addSequential(new RoutineAutoAlign());
-        addSequential(new ShooterWaitForStabilize(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
+        addSequential(new ShooterWaitForStabilize());
         addSequential(new StageTwoQueueToShooter());
         addSequential(new ShooterSlowStop());
     }

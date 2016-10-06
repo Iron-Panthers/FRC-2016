@@ -12,7 +12,7 @@ public class RoutineShootWithJoystick extends CommandGroup {
     public RoutineShootWithJoystick() {
         //addSequential(new RoutineShooterSpinupStabilize());
     	addSequential(new StageTwoPulseBack());
-    	addSequential(new ShooterWaitForStabilize(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
+    	addSequential(new ShooterWaitForStabilize());
         addSequential(new ShooterWaitForButton(1));
         addSequential(new StageTwoQueueToShooter());
         addSequential(new ShooterSlowStop());

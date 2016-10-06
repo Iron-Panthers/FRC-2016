@@ -26,8 +26,8 @@ public class RoutineAutoAlignRPMs extends CommandGroup {
         addSequential(new StageTwoPulseBack());
         // rpmUpper and lower are messed up here (somehow) perhaps, not set?
         // ISSUE DISCOVERED: THIS IS ALL IN A CONSTRUCTOR, SO AT THE TIME, THESE VALUES ARE DIFFERENT THAN THE REALTIME VALUES
-        addSequential(new ShooterShootRPM(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
-        addSequential(new ShooterWaitForStabilize(Robot.rpmUpperShooter, Robot.rpmLowerShooter));
+        addSequential(new ShooterShootRPM());
+        addSequential(new ShooterWaitForStabilize());
         addSequential(new StageTwoQueueToShooter());
         addSequential(new ShooterSlowStop());
     }
