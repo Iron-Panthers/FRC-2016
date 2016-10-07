@@ -235,6 +235,9 @@ public class Robot extends IterativeRobot {
     	System.out.println(autonomousCommand.getName());
     	System.out.println(autonomousChooser.getSelected());
     	autonomousCommand.start();
+    	System.out.println(autonomousCommand.isRunning());
+    	System.out.println(autonomousCommand.isCanceled());
+    	//Scheduler.getInstance().add(autonomousCommand);
     }
 
     public void autonomousPeriodic() {

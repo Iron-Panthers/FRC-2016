@@ -79,7 +79,7 @@ public class Constants {
 	
 	public static final int X_MAX_DIFFERENCE = 180; // At 30 degrees
 	public static final double X_MAX_ANGLE = 30;
-	public static final double ANGLE_THRESHOLD = 1.5; //Need to fix this at comp.
+	public static final double ANGLE_THRESHOLD = 1; //Need to fix this at comp.
 	// Rotate J-ankly
 	public static final double SECONDS_PER_ANGLE = 0.015; //Need to fix this at comp.
 	
