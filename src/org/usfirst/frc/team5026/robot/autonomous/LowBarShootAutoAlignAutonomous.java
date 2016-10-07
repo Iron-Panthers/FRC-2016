@@ -1,14 +1,13 @@
 package org.usfirst.frc.team5026.robot.autonomous;
 
 import org.usfirst.frc.team5026.robot.Constants;
-import org.usfirst.frc.team5026.robot.Robot;
 import org.usfirst.frc.team5026.robot.commands.DriveForwardsCarveRight;
 import org.usfirst.frc.team5026.robot.commands.DriveRotateThetaWithGyro;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmLower;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmRaise;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinIn;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerStop;
-import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlignRPMs;
+import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlign;
 import org.usfirst.frc.team5026.robot.commands.ShooterShootRPM;
 import org.usfirst.frc.team5026.robot.commands.ShooterSlowStop;
 import org.usfirst.frc.team5026.robot.commands.ShooterWaitForStabilize;
@@ -36,8 +35,8 @@ public class LowBarShootAutoAlignAutonomous extends CommandGroup {
         addSequential(new IntakeArmRaise());
         addSequential(new DriveRotateThetaWithGyro(15));
         //addSequential(new DriveFowardsForTime(1));
-        addSequential(new RoutineAutoAlignRPMs());
-        addSequential(new RoutineAutoAlignRPMs());
+        addSequential(new RoutineAutoAlign());
+        addSequential(new RoutineAutoAlign());
         //addSequential(new RoutineAutoAlign());
         addSequential(new ShooterWaitForStabilize());
         addSequential(new StageTwoQueueToShooter());
