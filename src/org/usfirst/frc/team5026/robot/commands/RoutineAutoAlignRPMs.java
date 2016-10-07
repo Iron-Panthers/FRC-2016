@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 public class RoutineAutoAlignRPMs extends CommandGroup {
     
     public  RoutineAutoAlignRPMs() {
-    	double speed = 0.24; //0.18
+    	double speed = 0.35; //0.24
     	addSequential(new VisionAngleCalculation());
     	//Robot.rotate.offsetAngle = 30;
     	double delay = 0.55;

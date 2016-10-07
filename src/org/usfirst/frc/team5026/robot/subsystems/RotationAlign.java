@@ -73,7 +73,7 @@ public class RotationAlign extends Subsystem {
     }
     
     private double distanceFromY(double yCenter) {
-    	return 2.2653197632351 * Math.pow(10, -4) * Math.pow(yCenter - Constants.Y_NOMINAL_9_FT, 2) + 0.03688336790171 * (yCenter - Constants.Y_NOMINAL_9_FT) +  1.516 * Math.pow(10, -13);
+    	return 2.2653197632351 * Math.pow(10, -4) * Math.pow(yCenter - Constants.Y_NOMINAL_6_FT, 2) + 0.03688336790171 * (yCenter - Constants.Y_NOMINAL_9_FT) +  1.516 * Math.pow(10, -13);
     }
     
     private double angleFromDeltaX(double xOffset2) {
@@ -190,8 +190,8 @@ public class RotationAlign extends Subsystem {
 		}
 		contourCenterX = centerX[indexOfMaxArea];
 		contourCenterY = centerY[indexOfMaxArea];
-		deltaY = Constants.Y_NOMINAL_9_FT - contourCenterY;
-		if (Constants.Y_NOMINAL_9_FT - contourCenterY < 0) {
+		deltaY = Constants.Y_NOMINAL_6_FT - contourCenterY;
+		if (Constants.Y_NOMINAL_6_FT - contourCenterY < 0) {
 			// CLOSE
 			close = false;
 		} else {

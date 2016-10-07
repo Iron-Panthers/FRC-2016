@@ -65,7 +65,7 @@ public class Constants {
 	// 259 px: 149 in to camera
 	// Maker Fair Shot
 	public static final int X_NOMINAL_6_FT = 327; //Need to fix this at comp. FIX THESE
-	public static final int Y_NOMINAL_6_FT = 95; //Need to fix this at comp. FIX THESE
+	public static final int Y_NOMINAL_6_FT = 60; //Need to fix this at comp. FIX THESE
 	// Far Shot
 	public static final int X_NOMINAL_12_FT = 333;
 	public static final int Y_NOMINAL_12_FT = 239;
@@ -74,6 +74,7 @@ public class Constants {
 	public static final int Y_NOMINAL_9_FT = 143;
 	
 	public static final int Y_PIXELS_PER_SECOND = 110; //Need to fix this at comp. FIX THESE
+	// 110
 	public static final double NOMINAL_FEET = 8; //Need to fix this at comp.
 	
 	public static final int X_MAX_DIFFERENCE = 180; // At 30 degrees
