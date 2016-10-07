@@ -14,7 +14,7 @@ public class RoutineAutoAlign extends CommandGroup {
     	double speed = 0.24; //0.18
     	addSequential(new VisionAngleCalculation());
     	//Robot.rotate.offsetAngle = 30;
-    	double delay = 0.55;
+    	double delay = 0.62;
     	/*
     	addSequential(new StageTwoPulseBack());
     	addSequential(new ShooterShootRPM(Robot.rpmUpperShooterAuto, Robot.rpmLowerShooterAuto));
