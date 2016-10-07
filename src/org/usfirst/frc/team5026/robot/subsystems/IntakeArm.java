@@ -33,6 +33,7 @@ public class IntakeArm extends Subsystem {
 	
     public void initDefaultCommand() {
     	setDefaultCommand(new IntakeArmRaise()); // Check this
+    	// KILL IT WITH FIRE
     }
 }
 
