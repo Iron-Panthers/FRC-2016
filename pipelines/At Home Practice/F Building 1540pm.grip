@@ -41,14 +41,14 @@
       </grip:Input>
       <grip:Input step="2" socket="2">
         <value>
-          <double>87.14028776978417</double>
-          <double>235.41808873720134</double>
+          <double>119.24460431654676</double>
+          <double>255.0</double>
         </value>
       </grip:Input>
       <grip:Input step="2" socket="3">
         <value>
-          <double>41.276978417266186</double>
-          <double>255.0</double>
+          <double>52.74280575539568</double>
+          <double>93.99317406143345</double>
         </value>
       </grip:Input>
       <grip:Output step="2" socket="0" previewed="true"/>
@@ -58,7 +58,7 @@
       <grip:Input step="3" socket="1">
         <value>
           <double>0.0</double>
-          <double>126.62969283276452</double>
+          <double>22.192832764505134</double>
         </value>
       </grip:Input>
       <grip:Input step="3" socket="2">
@@ -69,7 +69,7 @@
       </grip:Input>
       <grip:Input step="3" socket="3">
         <value>
-          <double>142.17625899280574</double>
+          <double>71.08812949640287</double>
           <double>255.0</double>
         </value>
       </grip:Input>
@@ -158,16 +158,20 @@
   </steps>
   <connections>
     <grip:Connection>
-      <grip:Output step="2" socket="0" previewed="true"/>
-      <grip:Input step="4" socket="0"/>
+      <grip:Output step="0" socket="0" previewed="true"/>
+      <grip:Input step="1" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="6" socket="0" previewed="false"/>
+      <grip:Input step="7" socket="0"/>
     </grip:Connection>
     <grip:Connection>
       <grip:Output step="4" socket="0" previewed="true"/>
       <grip:Input step="5" socket="0"/>
     </grip:Connection>
     <grip:Connection>
-      <grip:Output step="0" socket="0" previewed="true"/>
-      <grip:Input step="1" socket="0"/>
+      <grip:Output step="2" socket="0" previewed="true"/>
+      <grip:Input step="4" socket="0"/>
     </grip:Connection>
     <grip:Connection>
       <grip:Output step="5" socket="0" previewed="false"/>
@@ -178,14 +182,6 @@
       <grip:Input step="8" socket="0"/>
     </grip:Connection>
     <grip:Connection>
-      <grip:Output source="0" socket="0" previewed="false"/>
-      <grip:Input step="0" socket="0"/>
-    </grip:Connection>
-    <grip:Connection>
-      <grip:Output step="1" socket="0" previewed="true"/>
-      <grip:Input step="2" socket="0"/>
-    </grip:Connection>
-    <grip:Connection>
       <grip:Output step="1" socket="0" previewed="true"/>
       <grip:Input step="3" socket="0"/>
     </grip:Connection>
@@ -194,8 +190,12 @@
       <grip:Input step="4" socket="1"/>
     </grip:Connection>
     <grip:Connection>
-      <grip:Output step="6" socket="0" previewed="false"/>
-      <grip:Input step="7" socket="0"/>
+      <grip:Output step="1" socket="0" previewed="true"/>
+      <grip:Input step="2" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output source="0" socket="0" previewed="false"/>
+      <grip:Input step="0" socket="0"/>
     </grip:Connection>
   </connections>
   <settings>

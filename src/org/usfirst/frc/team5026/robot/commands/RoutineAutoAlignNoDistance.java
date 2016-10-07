@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 public class RoutineAutoAlignNoDistance extends CommandGroup {
     
     public  RoutineAutoAlignNoDistance() {
-    	double speed = 0.24; //0.18
+    	double speed = 0.22; //0.18
     	addSequential(new VisionAngleCalculation());
     	//Robot.rotate.offsetAngle = 30;
     	double delay = 0.55;
