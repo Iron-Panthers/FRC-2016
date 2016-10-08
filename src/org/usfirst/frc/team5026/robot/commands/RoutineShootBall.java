@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class RoutineShootBall extends CommandGroup {
     
     public  RoutineShootBall() {
-    	addSequential(new ShooterWaitForStabilize(Constants.UPPER_SHOOTER_RPM_9, Constants.LOWER_SHOOTER_RPM_6));
+    	addSequential(new ShooterWaitForStabilize(Constants.UPPER_SHOOTER_RPM_9, Constants.LOWER_SHOOTER_RPM_9));
     	addSequential(new StageTwoQueueToShooter());
     	addSequential(new ShooterSlowStop());
     }
