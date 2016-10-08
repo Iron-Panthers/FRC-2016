@@ -41,7 +41,6 @@ public class DriveRotateThetaWithGyro extends Command {
     	} else {
     		Robot.drive.setLeftRightMotors(-speed, speed);
     	}
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -52,7 +52,7 @@ public class Constants {
 	public static final int UPPER_SHOOTER_RPM_12 = -4000; //Tested V
 	public static final int LOWER_SHOOTER_RPM_12 = -3100; //2900
 	public static final int UPPER_SHOOTER_RPM_9 = -4200;
-	public static final int LOWER_SHOOTER_RPM_9 = -3100;
+	public static final int LOWER_SHOOTER_RPM_9 = -3200; //3000
 	public static final int UPPER_SHOOTER_RPM_6 = -5600;
 	public static final int LOWER_SHOOTER_RPM_6 = -4000;
 	
