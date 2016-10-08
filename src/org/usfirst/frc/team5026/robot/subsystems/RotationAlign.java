@@ -132,12 +132,12 @@ public class RotationAlign extends Subsystem {
 		//contourY = heights[indexOfMaxArea];
 		//contourX = widths[indexOfMaxArea];
 		
-		offsetAngle = angleFromDeltaX(contourCenterX - Constants.X_NOMINAL_9_FT) / 2; //check if going right is positive offsetAngle DONT DIVIDE BY 2
+		offsetAngle = angleFromDeltaX(contourCenterX - Constants.X_NOMINAL_6_FT) / 2; //check if going right is positive offsetAngle DONT DIVIDE BY 2
 		distance = distanceFromY(contourCenterY);
 		SmartDashboard.putNumber("Contour CenterX", contourCenterX);
 		SmartDashboard.putNumber("Contour CenterY", contourCenterY);
 		SmartDashboard.putNumber("Distance", distance);
-		SmartDashboard.putNumber("Nominal X", Constants.X_NOMINAL_9_FT);
+		SmartDashboard.putNumber("Nominal X", Constants.X_NOMINAL_6_FT);
 		// angle calc.
 		// dist. calc.
 		// END BEFORE ROTATING
