@@ -36,6 +36,7 @@ public class LowBarShootAutoAlignAutonomous extends CommandGroup {
         addSequential(new DriveRotateThetaWithGyro(15));
         //addSequential(new DriveFowardsForTime(1));
         addSequential(new RoutineAutoAlignNoDistance());
+        //addSequential(new RoutineAutoAlignRPMs());
         //addSequential(new RoutineAutoAlign());
         //addSequential(new RoutineAutoAlign());
         addSequential(new ShooterWaitForStabilize());
