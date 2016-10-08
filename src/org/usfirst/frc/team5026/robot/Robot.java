@@ -70,8 +70,8 @@ public class Robot extends IterativeRobot {
 	public static int rpmUpperBatter = -3200;
 	public static int rpmLowerBatter = -4700;
 
-	public static int rpmUpperShooter = -4000; //5600
-	public static int rpmLowerShooter = -2900; //4000
+	public static int rpmUpperShooter = Constants.UPPER_SHOOTER_RPM_9; //5600
+	public static int rpmLowerShooter = Constants.LOWER_SHOOTER_RPM_9; //4000
 	// OLD 4800, 3200
 	// NEW 148": 4800,3200
 	
