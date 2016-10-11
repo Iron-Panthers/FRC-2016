@@ -85,4 +85,5 @@ public class Constants {
 	
 	// Drive Straight (perfectly) Values
 	public static final double ANGLE_PER_FULL_SPEED_COMPENSATION = 45*2;
+	public static final double JOYSTICK_X_DEADZONE_PERCENTAGE_OF_Y = 0.1;
 }
