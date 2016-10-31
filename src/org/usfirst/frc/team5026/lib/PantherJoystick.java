@@ -9,8 +9,8 @@ public class PantherJoystick extends Joystick {
 	public double m_deadzoneX;
 	public double m_deadzoneY;
 	double motorDeadZone;
-	double scalingX; // slope of joystick curve
-	double scalingY; // slope of joystick curve
+	public double scalingX; // slope of joystick curve
+	public double scalingY; // slope of joystick curve
 	
 	public PantherJoystick(int port, double deadzoneX, double deadzoneY, double driveMotorsDeadZone, double driveJoystickXScaling, double driveJoystickYScaling) {
 		super(port);
