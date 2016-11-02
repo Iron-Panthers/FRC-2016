@@ -9,6 +9,7 @@ import org.usfirst.frc.team5026.robot.commands.GearToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmLower;
 import org.usfirst.frc.team5026.robot.commands.IntakeArmToggle;
 import org.usfirst.frc.team5026.robot.commands.IntakeRollerSpinOut;
+import org.usfirst.frc.team5026.robot.commands.JoystickScalingChange;
 import org.usfirst.frc.team5026.robot.commands.RoutineAirplane;
 import org.usfirst.frc.team5026.robot.commands.RoutineAlignRPMs;
 import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlign;
@@ -16,7 +17,6 @@ import org.usfirst.frc.team5026.robot.commands.RoutineAutoAlignNoDistance;
 import org.usfirst.frc.team5026.robot.commands.RoutineIntakeBall;
 import org.usfirst.frc.team5026.robot.commands.RoutineShootWithJoystick;
 import org.usfirst.frc.team5026.robot.commands.RoutineShooterShootBall;
-import org.usfirst.frc.team5026.robot.commands.ShooterPistonsRaise;
 import org.usfirst.frc.team5026.robot.commands.StageTwoOuttake;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -166,7 +166,8 @@ public class OI {
  		//boardButton9.whenPressed(new RoutineAutoAlignRPMs());
  		boardButton9.whenPressed(new RoutineShooterShootBall());
  		boardSwitch10.whileHeld(new IntakeArmLower());
- 		boardSwitch11.whileHeld(new ShooterPistonsRaise());
+ 		//boardSwitch11.whileHeld(new ShooterPistonsRaise());
+ 		boardSwitch11.whenPressed(new JoystickScalingChange());
  		//boardSwitch12.whenPressed(new AIRPLANE());
  		//boardSwitch13.whenPressed(new AIRPLANE());
 	}
