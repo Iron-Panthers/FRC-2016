@@ -10,8 +10,8 @@ public class Constants {
 	// Joystick
 	public static final double DRIVE_JOYSTICK_X_DEADZONE = 0.2;
 	public static final double DRIVE_JOYSTICK_Y_DEADZONE = 0.2;
-	public static final double DRIVE_JOYSTICK_X_SCALING = 0.5; //Need to fix at comp.
-	public static final double DRIVE_JOYSTICK_Y_SCALING = 0.7; //Need to fix at comp.
+	public static final double DRIVE_JOYSTICK_X_SCALING = 0.35; //Need to fix at comp. .5
+	public static final double DRIVE_JOYSTICK_Y_SCALING = 0.35; //Need to fix at comp. .7
 
 	// Motors
 	public static final double DRIVE_MOTORS_DEAD_ZONE = 0.35; // Value required to overcome static friction
